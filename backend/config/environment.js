@@ -1,5 +1,7 @@
-const port = 8000
+const port = 3333
+const secret = 'We only rap in our clique'
 
 module.exports = {
-  port
+  port,
+  secret
 }

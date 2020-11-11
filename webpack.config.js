@@ -24,12 +24,12 @@ module.exports = env => {
       contentBase: path.resolve('frontend'),
       hot: true,
       open: true,
-      port: 8001,
+      port: 3334,
       watchContentBase: true,
       historyApiFallback: true,
       proxy: {
         '/api': {
-          target: 'http://localhost:8000',
+          target: 'http://localhost:3333',
           secure: false
         }
       }
