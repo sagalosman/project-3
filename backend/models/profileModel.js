@@ -5,13 +5,12 @@ const profileSchema = new mongoose.Schema({
   user: { type: mongoose.Schema.ObjectId, ref: 'User', required: true },
   song: { type: String },
   events: { type: Array },
-  friends: { type: Array },
-  taggedEvents: { type: mongoose.Schema.ObjectId, ref: 'Events' },
-  topFriends: { type: Array, required: true },
-  photo: { type: String },
+  friends: [{ type: mongoose.Schema.ObjectId, ref: 'User', required: true }],
+  taggedEvents: [{ type: mongoose.Schema.ObjectId, ref: 'Events' }],
+  topFriends: [{ type: mongoose.Schema.ObjectId, ref: 'User', required: true }],
   bio: { type: String },
   recentEvents: { type: Array },
-  publicOrPrivate: { type: Boolean, required: true }
+  private: { type: Boolean, required: true }
 })
 
 profileSchema.plugin(uniqueValidator)

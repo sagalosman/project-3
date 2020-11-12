@@ -1,4 +1,5 @@
 const mongoose = require('mongoose')
+
 const commentSchema = new mongoose.Schema({
   user: { type: mongoose.Schema.ObjectId, ref: 'Profile', required: true },
   text: {type: String, required: true},
@@ -18,9 +19,8 @@ const eventsSchema = new mongoose.Schema ({
  attendance: {type: Number},
  likes: {type: Number},
  private: {type: Boolean},
- user: { type: mongoose.Schema.ObjectId, ref: 'User', required: true },
- hosts: {type: Array},
- timeOfEvent: {type: Date, required: true}
+ creator: { type: mongoose.Schema.ObjectId, ref: 'User', required: true },
+ hosts: {type: Array}
 },  
 {
   timestamps: true
