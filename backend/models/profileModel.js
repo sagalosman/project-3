@@ -6,7 +6,7 @@ const profileSchema = new mongoose.Schema({
   song: { type: String },
   events: { type: Array },
   friends: { type: Array },
-  taggedEvents: { type: mongoose.Schema.ObjectId, ref: 'Event' },
+  taggedEvents: { type: mongoose.Schema.ObjectId, ref: 'Events' },
   topFriends: { type: Array, required: true },
   photo: { type: String },
   bio: { type: String },

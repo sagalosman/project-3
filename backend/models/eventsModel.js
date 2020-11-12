@@ -1,5 +1,12 @@
 const mongoose = require('mongoose')
-
+const commentSchema = new mongoose.Schema({
+  user: { type: mongoose.Schema.ObjectId, ref: 'Profile', required: true },
+  text: {type: String, required: true},
+},
+{
+  timestamps: true
+}
+)
 const eventsSchema = new mongoose.Schema ({
  eventName: {type: String, required: true},
  location: {type: String, required: true},
