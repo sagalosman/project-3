@@ -18,8 +18,9 @@ const eventsSchema = new mongoose.Schema ({
  attendance: {type: Number},
  likes: {type: Number},
  private: {type: Boolean},
- creator: { type: mongoose.Schema.ObjectId, ref: 'User', required: true },
- hosts: {type: Array}
+ user: { type: mongoose.Schema.ObjectId, ref: 'User', required: true },
+ hosts: {type: Array},
+ timeOfEvent: {type: Date, required: true}
 },  
 {
   timestamps: true

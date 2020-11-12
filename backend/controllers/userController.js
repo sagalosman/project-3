@@ -29,7 +29,16 @@ function logIn(req, res) {
     })
 }
 
+function getAllUsers(req, res) {
+  User.find()
+    .then(user => {
+      res.send(user)
+    })
+    .catch(err => res.send(err))
+}
+
 module.exports = {
   createUser,
-  logIn
+  logIn,
+  getAllUsers
 }

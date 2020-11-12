@@ -31,8 +31,18 @@ function getProfile(req, res) {
     .catch(err => res.send(err))
 }
 
+function getAllProfiles(req, res) {
+  Profile.find()
+    .populate('user')
+    .then(profile => {
+      res.send(profile)
+    })
+    .catch(err => res.send(err))
+}
+
 module.exports = {
   setProfile,
   editProfile,
-  getProfile
+  getProfile,
+  getAllProfiles
 }
