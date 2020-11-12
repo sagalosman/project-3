@@ -33,7 +33,7 @@ function getProfile(req, res) {
 
 function getAllProfiles(req, res) {
   Profile.find()
-    .populate('friends')
+    .populate('topFriends user friends')
     .then(profile => {
       res.send(profile)
     })

@@ -56,8 +56,8 @@ mongoose.connect(
           .create([
             {
               user: users[0],
-              friends: [users[1], users[2], users[3]],
               topFriends: [users[1], users[2], users[3]],
+              friends: [users[1], users[2], users[3]],
               bio: 'BFG',
               private: true
             },
