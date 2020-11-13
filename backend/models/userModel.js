@@ -14,7 +14,7 @@ const userSchema = new mongoose.Schema({
 
 //Plugin modules for mongoose for login/registering functionality
 userSchema.plugin(uniqueValidator)
-userSchema.plugin(mongooseHidden({ defaultHidden: { password: true } }))
+userSchema.plugin(mongooseHidden({ defaultHidden: { password: true, email: true } }))
 
 userSchema
   .virtual('passwordConfirmation')
