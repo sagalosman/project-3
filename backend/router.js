@@ -22,6 +22,9 @@ router.route('/profile/:userId')
 router.route('/profiles')
   .get(profileController.getAllProfiles)
 
+router.route('/events')
+  .get(eventController.getAllEvents)
+
 router.route('/events/new-event')
   .post(secureRoute, eventController.newEvent)
 
@@ -29,11 +32,20 @@ router.route('/events/:eventId')
   .put(secureRoute, eventController.editEvent)
   .get(eventController.getEvent)
 
-  router.route('/events/:eventId/comments')
+router.route('/events/:eventId/comments')
   .post(secureRoute, eventController.newComment)
 
 router.route('/events/:eventId/comments/:commentId')
   .put(secureRoute, eventController.editComment)
   .delete(secureRoute, eventController.deleteComment)
+
+router.route('/events/:eventId/likes/remove')
+  .put(secureRoute, eventController.removeLike)
+
+router.route('/events/:eventId/likes/add')
+  .put(secureRoute, eventController.addLike)
+
+router.route('/events/:eventId/attendance/add')
+  .put(secureRoute, eventController.addAttendance)
 
 module.exports = router

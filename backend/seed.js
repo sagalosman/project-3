@@ -98,9 +98,9 @@ mongoose.connect(
               photo: 'Legend',
               song: 'Baby shark',
               description: 'Come and have a few tinnies with ye old Haz dog',
-              participants: [profiles[0].user, profiles[1].user, profiles[3].user],
+              invited: [profiles[0].user, profiles[1].user, profiles[3].user],
               attendance: 3,
-              likes: 0,
+              likes: 0
             }
           ])
       })
