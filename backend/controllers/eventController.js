@@ -119,17 +119,15 @@ function addAttendance(req, res) {
     .then(event => {
       const participants = event.participants
       participants.push(user)
-      return event
-    })
-    .then(event => {
+      
       const invitedUser = event.invited.find(user => user._id.equals(userId))
-      console.log(invitedUser)
-      invitedUser.remove()
+      event.invited.remove(invitedUser)
       return event.save()
     })
     .then(event => res.send(event))
     .catch(err => res.send(err))
 }
+
 
 module.exports = {
   newEvent,
