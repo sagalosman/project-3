@@ -14,12 +14,13 @@ const eventsSchema = new mongoose.Schema({
   song: { type: String },
   comments: [commentSchema],
   description: { type: String, required: true },
-  participants: [{ type: mongoose.Schema.ObjectId, ref: 'User', required: true }],
+  attending: [{ type: mongoose.Schema.ObjectId, ref: 'User', required: true }],
   invited: [{ type: mongoose.Schema.ObjectId, ref: 'User', required: true }],
   likes: { type: Number },
   private: { type: Boolean },
   creator: { type: mongoose.Schema.ObjectId, ref: 'User', required: true },
-  hosts: [{ type: mongoose.Schema.ObjectId, ref: 'User', required: true }]
+  hosts: [{ type: mongoose.Schema.ObjectId, ref: 'User', required: true }],
+  notAttending: [{ type: mongoose.Schema.ObjectId, ref: 'User', required: true }]
 },
   {
     timestamps: true
