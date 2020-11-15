@@ -25,10 +25,10 @@ router.route('/profiles')
 
 router.route('/events')
   .get(eventController.getAllEvents)
-  
+
 
 router.route('/events/public')
-.get(secureRoute, eventController.getPublicEvents)
+  .get(secureRoute, eventController.getPublicEvents)
 
 router.route('/events/new-event')
   .post(secureRoute, eventController.newEvent)
@@ -37,10 +37,8 @@ router.route('/events/:eventId')
   .put(secureRoute, eventController.editEvent)
   .get(eventController.getEvent)
 
-  router.route('/events/:userId/my-events')
+router.route('/events/:userId/my-events')
   .get(secureRoute, eventController.getMyEvents)
-
-
 
 router.route('/events/:eventId/comments')
   .post(secureRoute, eventController.newComment)
@@ -58,7 +56,7 @@ router.route('/events/:eventId/likes/add')
 router.route('/events/:eventId/attendance/add')
   .put(secureRoute, eventController.addAttendance)
 
-  router.route('/events/:eventId/attendance/remove')
+router.route('/events/:eventId/attendance/remove')
   .put(secureRoute, eventController.removeAttendance)
 
 

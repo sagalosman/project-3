@@ -1,3 +1,5 @@
+const { renderSync } = require('node-sass')
+const { unstable_renderSubtreeIntoContainer } = require('react-dom')
 const { Redirect } = require('react-router-dom')
 const { Template } = require('webpack')
 const Events = require('../models/eventsModel')
@@ -144,7 +146,6 @@ function removeAttendance(req, res) {
       notAttending.push(user)
 
       const invitedUser = event.invited.find(user => user._id.equals(userId))
-
       event.attending.remove(user)
       event.invited.remove(invitedUser)
       return event.save()
@@ -152,7 +153,6 @@ function removeAttendance(req, res) {
     .then(event => res.send(event))
     .catch(err => res.send(err))
 }
-
 
 function getPublicEvents(req, res) {
   Events.find({ private: false })
@@ -162,17 +162,28 @@ function getPublicEvents(req, res) {
 }
 
 function getMyEvents(req, res) {
-  const userId = req.params.userId
-  Events.find()
-    .populate('creator attending notAttending invited hosts')
+  const userId = req.currentUser._id
+  Events
+    .find()
+    .populate('creator attending notAttending invited hosts myEvnts')
     .then(events => {
-      const filteredEvents = events.filter(event => {
-        return event.invited.filter(user => {
-          return user._id === userId
-        })
-      })
-      return res.send(filteredEvents)
+      for (let i = 0; i < events.length; i++) {
+        if (events[i].creator._id.toString() === userId.toString()) {
+         events[i].push(myEvents)
+        } else {
+          console.log('Yo')
+        }
+        // const creatorFilter = events[i].creator._id.toString() === userId.toString()
+        // console.log(events[i])
+        // events.myEvents.push(events[i])
+        // events.save()
+        // const eventsFilters = events[i].invited.find(element => {
+        //   element._id.toString() === userId.toString()
+        // })
+        return events.save()
+      }
     })
+    .then(events => res.send(events))
     .catch(err => res.send(err))
 }
 
