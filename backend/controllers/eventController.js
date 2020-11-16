@@ -192,6 +192,8 @@ function getMyEvents(req, res) {
     .catch(err => res.send(err))
 }
 
+
+
 module.exports = {
   newEvent,
   newComment,
