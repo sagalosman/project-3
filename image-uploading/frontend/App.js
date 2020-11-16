@@ -1,19 +1,18 @@
-import React, {useState} from 'react'
+import Axios from 'axios'
+import React, { useState } from 'react'
 
 import './styles/style.scss'
 
 
-// For environment varibles
-console.log(process.env.hello)
-
 const App = () => {
+  
   const [image, setImage] = useState('')
 
   function handleUpload() {
     window.cloudinary.createUploadWidget(
       {
-        cloudName: 'dky2sqc0z', 
-        uploadPreset: 'clique1', 
+        cloudName: 'dbfud6pz0', //!this will be your cloud name
+        uploadPreset: 'testing', //!this will be your upload presets
         cropping: true
       },
       (err, result) => {
@@ -35,6 +34,5 @@ const App = () => {
   </>
 
 }
-
 
 export default App
