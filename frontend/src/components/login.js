@@ -28,12 +28,12 @@ const Login = () => {
     
     event.preventDefault()
 
-    axios.post('api/signup', formData)
+    axios.post('api/login', formData)
       .then(resp => {
         console.log(resp.data)
       
         
-        props.history.push('/login')
+        props.history.push('/register')
       })
   }
 
@@ -68,14 +68,10 @@ const Login = () => {
       />
     </div >
    
-    <button type="submit" onClick="return false;">Log in</button>
+    <button type="submit" onClick="handle-submit">Log in</button>
     <a href="" class="discrete" target="_blank">Sign Up</a>
   </form>
 </div>
-
-
-
- 
 }
 
 export default Login
