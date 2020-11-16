@@ -2,14 +2,27 @@ const mongoose = require('mongoose')
 const User = require('./models/userModel')
 const Profile = require('./models/profileModel')
 const Event = require('./models/eventsModel')
+const Image = require('./models/imageModel')
 
 mongoose.connect(
   'mongodb://localhost/cliquedb',
   { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true },
   (err) => {
     if (err) console.log(err)
-    
+
     mongoose.connection.db.dropDatabase()
+      .then(() => {
+        return Image.create([
+          {
+            name: 'alis_test_image',
+            url: ''
+          }
+        ])
+      })
+      .then(images => {
+        console.log(`${images.length} image(s) have been created!`)
+        return images
+      })
       .then(() => {
         return User.create([
           {
@@ -18,7 +31,8 @@ mongoose.connect(
             password: 'mitch',
             passwordConfirmation: 'mitch',
             username: 'mitty',
-            email: 'mitty@mitty.com'
+            email: 'mitty@mitty.com',
+            photo: 'Warning'
           },
           {
             firstname: 'Harry',
@@ -35,7 +49,8 @@ mongoose.connect(
             password: 'natasha',
             passwordConfirmation: 'natasha',
             username: 'natasha',
-            email: 'natasha@natasha.com'
+            email: 'natasha@natasha.com',
+            photo: 'Warning'
           },
           {
             firstname: 'Sagal',
@@ -43,7 +58,8 @@ mongoose.connect(
             password: 'sagal',
             passwordConfirmation: 'sagal',
             username: 'sagal',
-            email: 'sagal@sagal.com'
+            email: 'sagal@sagal.com',
+            photo: 'Warning'
           }
         ])
       })
@@ -107,12 +123,12 @@ mongoose.connect(
 
             {
               eventName: "juice",
-              creator: profiles[2].user,
+              creator: profiles[1].user,
               location: 'Party Town',
               photo: 'Legend',
               song: 'Baby shark',
               description: 'Come and have a few tinnies with ye old Haz dog',
-              invited: [profiles[0].user, profiles[1].user, profiles[3].user],
+              invited: [profiles[0].user, profiles[3].user],
               attendance: 3,
               likes: 0,
               private: true
