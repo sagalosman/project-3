@@ -4,6 +4,7 @@ const { secret } = require('../config/environment')
 
 function createUser(req, res) {
   const body = req.body
+  req.body.image = 'https://res.cloudinary.com/dky2sqc0z/image/upload/v1605526916/1200px-User_font_awesome.svg_oa84gz.png'
   console.log('hello')
   User
     .create(body)
@@ -37,8 +38,23 @@ function getAllUsers(req, res) {
     .catch(err => res.send(err))
 }
 
+function uploadImage(req, res){
+  const userId = req.params.userId
+  User
+    .findById(userId)
+    .then(image => {
+      console.log(image.params)
+      image.set(req.body)
+      image.save()
+      return image
+    })
+    .then((image) => res.send(image))
+    .catch(error => res.send(error))
+}
+
 module.exports = {
   createUser,
   logIn,
-  getAllUsers
+  getAllUsers,
+  uploadImage
 }

@@ -4,10 +4,16 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import './styles/style.scss'
 
 
+<<<<<<< HEAD
 import Register from './src/components/Register'
 import Login from './src/components/Login'
 import Profile from './src/components/Profile'
 // For environment varibles
+=======
+import Register from './src/components/register'
+import Login from './src/components/login'
+
+>>>>>>> 2101a99f542a054f6389829e4923254e0d809398
 console.log(process.env.hello)
 
 const App = () => {

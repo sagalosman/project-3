@@ -2,7 +2,6 @@ const mongoose = require('mongoose')
 const User = require('./models/userModel')
 const Profile = require('./models/profileModel')
 const Event = require('./models/eventsModel')
-const Image = require('./models/imageModel')
 
 mongoose.connect(
   'mongodb://localhost/cliquedb',
@@ -12,18 +11,6 @@ mongoose.connect(
 
     mongoose.connection.db.dropDatabase()
       .then(() => {
-        return Image.create([
-          {
-            name: 'alis_test_image',
-            url: ''
-          }
-        ])
-      })
-      .then(images => {
-        console.log(`${images.length} image(s) have been created!`)
-        return images
-      })
-      .then(() => {
         return User.create([
           {
             firstname: 'Mitchell',
@@ -32,7 +19,7 @@ mongoose.connect(
             passwordConfirmation: 'mitch',
             username: 'mitty',
             email: 'mitty@mitty.com',
-            photo: 'Warning'
+            image: 'https://res.cloudinary.com/dky2sqc0z/image/upload/v1605526916/1200px-User_font_awesome.svg_oa84gz.png'
           },
           {
             firstname: 'Harry',
@@ -41,7 +28,7 @@ mongoose.connect(
             passwordConfirmation: 'harry',
             username: 'harry',
             email: 'harry@harry.com',
-            photo: 'Warning'
+            image: 'https://res.cloudinary.com/dky2sqc0z/image/upload/v1605526916/1200px-User_font_awesome.svg_oa84gz.png'
           },
           {
             firstname: 'Natasha',
@@ -50,7 +37,7 @@ mongoose.connect(
             passwordConfirmation: 'natasha',
             username: 'natasha',
             email: 'natasha@natasha.com',
-            photo: 'Warning'
+            image: 'https://res.cloudinary.com/dky2sqc0z/image/upload/v1605526916/1200px-User_font_awesome.svg_oa84gz.png'
           },
           {
             firstname: 'Sagal',
@@ -59,7 +46,7 @@ mongoose.connect(
             passwordConfirmation: 'sagal',
             username: 'sagal',
             email: 'sagal@sagal.com',
-            photo: 'Warning'
+            image: 'https://res.cloudinary.com/dky2sqc0z/image/upload/v1605526916/1200px-User_font_awesome.svg_oa84gz.png'
           }
         ])
       })
@@ -72,29 +59,29 @@ mongoose.connect(
           .create([
             {
               user: users[0],
-              topFriends: [users[1], users[2], users[3]],
-              friends: [users[1], users[2], users[3]],
+              topFriends: [],
+              friends: [],
               bio: 'BFG',
               private: true
             },
             {
               user: users[1],
-              friends: [users[0], users[2], users[3]],
-              topFriends: [users[0], users[2], users[3]],
+              friends: [],
+              topFriends: [],
               bio: 'I have been classed as a foot',
               private: true
             },
             {
               user: users[2],
-              friends: [users[0], users[1], users[3]],
-              topFriends: [users[0], users[1], users[3]],
+              friends: [],
+              topFriends: [],
               bio: 'The friendly square',
               private: true
             },
             {
               user: users[3],
-              friends: [users[0], users[1], users[2]],
-              topFriends: [users[0], users[1], users[2]],
+              friends: [],
+              topFriends: [],
               bio: 'Hamburger',
               private: true
             }
@@ -118,12 +105,13 @@ mongoose.connect(
               notAttending: [profiles[2].user],
               attendance: 3,
               likes: 0,
-              private: false
+              private: false,
+              date: new Date(2020, 11, 12)
             },
 
             {
               eventName: "juice",
-              creator: profiles[1].user,
+              creator: profiles[2].user,
               location: 'Party Town',
               photo: 'Legend',
               song: 'Baby shark',
@@ -131,7 +119,8 @@ mongoose.connect(
               invited: [profiles[0].user, profiles[3].user],
               attendance: 3,
               likes: 0,
-              private: true
+              private: true,
+              date: new Date(2021, 1, 17)
             }
 
           ])
