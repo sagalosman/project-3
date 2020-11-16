@@ -72,29 +72,29 @@ mongoose.connect(
           .create([
             {
               user: users[0],
-              topFriends: [users[1], users[2], users[3]],
-              friends: [users[1], users[2], users[3]],
+              topFriends: [],
+              friends: [],
               bio: 'BFG',
               private: true
             },
             {
               user: users[1],
-              friends: [users[0], users[2], users[3]],
-              topFriends: [users[0], users[2], users[3]],
+              friends: [],
+              topFriends: [],
               bio: 'I have been classed as a foot',
               private: true
             },
             {
               user: users[2],
-              friends: [users[0], users[1], users[3]],
-              topFriends: [users[0], users[1], users[3]],
+              friends: [],
+              topFriends: [],
               bio: 'The friendly square',
               private: true
             },
             {
               user: users[3],
-              friends: [users[0], users[1], users[2]],
-              topFriends: [users[0], users[1], users[2]],
+              friends: [],
+              topFriends: [],
               bio: 'Hamburger',
               private: true
             }
@@ -118,7 +118,8 @@ mongoose.connect(
               notAttending: [profiles[2].user],
               attendance: 3,
               likes: 0,
-              private: false
+              private: false,
+              date: new Date(2020, 11, 12)
             },
 
             {
@@ -131,7 +132,8 @@ mongoose.connect(
               invited: [profiles[0].user, profiles[3].user],
               attendance: 3,
               likes: 0,
-              private: true
+              private: true,
+              date: new Date(2021, 1, 17)
             }
 
           ])

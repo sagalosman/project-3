@@ -243,6 +243,65 @@ function getUsersEvents(req, res) {
     .catch(err => res.send(err))
 }
 
+function getRecentEvents(req, res) {
+  const userId = req.params.userId
+  const currentUser = req.currentUser._id.toString()
+  const currentDate = new Date()
+  Events.find()
+    .populate('creator attending notAttending invited hosts')
+    .then(events => {
+      let myEvents = []
+      for (let i = 0; i < events.length; i++) {
+        let permissions = false
+        let creatorFilter = false
+        if (events[i].creator._id.toString() === userId) {
+          creatorFilter = true
+        } else if (events[i].creator._id.toString() === currentUser) {
+          creatorFilter = true
+          permissions = true
+        }
+        const invitedFilter = events[i].invited.find(element => {
+          if (element._id.toString() === currentUser.toString()) permissions = true
+          return element._id.toString() === userId
+        })
+        const notAttendingFilter = events[i].notAttending.find(element => {
+          if (element._id.toString() === currentUser) permissions = true
+          return element._id.toString() === userId.toString()
+        })
+        const attendingFilter = events[i].attending.find(element => {
+          if (element._id.toString() === currentUser) permissions = true
+          return element._id.toString() === userId
+        })
+        const hostsFilter = events[i].hosts.find(element => {
+          if (element._id.toString() === currentUser) permissions = true
+          return element._id.toString() === userId
+        })
+
+        const isPrivate = events[i].private
+
+        if (invitedFilter || creatorFilter || notAttendingFilter || attendingFilter || hostsFilter) {
+          if (!permissions && isPrivate) {
+            console.log('Private and current user not included')
+          } else {
+            myEvents.push(events[i])
+          }
+        }
+      }
+      return myEvents
+    })
+    .then(events => {
+      let recentEvents = []
+      for (let i = 0; i < events.length; i++) {
+        if (events[i].date <= currentDate) {
+          recentEvents.push(events[i])
+        }
+      }
+      return recentEvents
+    })
+    .then(events => res.send(events))
+    .catch(err => res.send(err))
+}
+
 module.exports = {
   newEvent,
   newComment,
@@ -257,5 +316,6 @@ module.exports = {
   removeAttendance,
   getPublicEvents,
   getMyEvents,
-  getUsersEvents
+  getUsersEvents,
+  getRecentEvents
 }

@@ -23,6 +23,14 @@ router.route('/profile/:userId')
   .put(secureRoute, profileController.editProfile)
   .get(secureRoute, profileController.getProfile)
 
+router.route('/profile/:userId/friends')
+  .put(secureRoute, profileController.addFriend)
+  .delete(secureRoute, profileController.removeFriend)
+
+router.route('/profile/:userId/top-friends')
+  .put(secureRoute, profileController.addTopFriend)
+  .delete(secureRoute, profileController.removeTopFriend)
+
 router.route('/profiles')
   .get(secureRoute, profileController.getAllProfiles)
 
@@ -34,6 +42,9 @@ router.route('/events/public')
 
 router.route('/events/:userId')
   .get(secureRoute, eventController.getUsersEvents)
+
+router.route('/events/:userId/recent-events')
+  .get(secureRoute, eventController.getRecentEvents)
 
 router.route('/events/new-event')
   .post(secureRoute, eventController.newEvent)
