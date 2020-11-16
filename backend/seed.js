@@ -123,7 +123,7 @@ mongoose.connect(
 
             {
               eventName: "juice",
-              creator: profiles[1].user,
+              creator: profiles[2].user,
               location: 'Party Town',
               photo: 'Legend',
               song: 'Baby shark',
