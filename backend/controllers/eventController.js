@@ -162,7 +162,7 @@ function getMyEvents(req, res) {
   const userId = req.currentUser._id
   Events
     .find()
-    .populate('creator attending notAttending invited hosts myEvnts')
+    .populate('creator attending notAttending invited hosts')
     .then(events => {
       let myEvents = []
       for (let i = 0; i < events.length; i++) {
@@ -177,7 +177,7 @@ function getMyEvents(req, res) {
            return element._id.toString() === userId.toString()
         })
         const hostsFilter = events[i].hosts.find(element => {
-          console.log(element._id.toString() === userId.toString())
+          return element._id.toString() === userId.toString()
        })
         
         if (invitedFilter ||
@@ -192,7 +192,60 @@ function getMyEvents(req, res) {
     .catch(err => res.send(err))
 }
 
+function getUsersEvents(req, res) {
+  const userId = req.params.userId
+  const currentUser = req.currentUser._id.toString()
 
+  Events
+    .find()
+    .populate('creator attending notAttending invited hosts')
+    .then(events => {
+      let myEvents = []
+      for (let i = 0; i < events.length; i++) {
+        let permissions = false
+        // const creatorFilter = events[i].creator.find(element => {
+        //   console.log('hello')
+        //   if (element._id.toString() === currentUser) permissions = true
+        //   console.log(permissions)
+        //   return element._id.toString() === userId 
+        // })
+        // const invitedFilter = events[i].invited.find(element => {
+        //   if (element._id.toString() === currentUser.toString()) permissions = true
+        //   return element._id.toString() === userId 
+        // })
+        const notAttendingFilter = events[i].notAttending.find(element => {
+          console.log(element)
+          if (element._id.toString() === currentUser) permissions = true
+          console.log(element._id === userId)
+          // return element._id.toString() === userId.toString()
+        }) 
+      //   const attendingFilter = events[i].attending.find(element => {
+      //     if (element._id.toString() === currentUser) permissions = true
+      //      return element._id.toString() === userId
+      //   })
+      //   const hostsFilter = events[i].hosts.find(element => {
+      //     if (element._id.toString() === currentUser) permissions = true
+      //    return element._id.toString() === userId
+      //  })      
+
+       const private = events[i].private === false
+
+       console.log(notAttendingFilter)
+      //  console.log(private)
+
+        if (notAttendingFilter) myEvents.push(events[i])
+        // if (((invitedFilter ||
+        //     creatorFilter || 
+        //     notAttendingFilter || 
+        //     attendingFilter ||
+        //     hostsFilter) && (permissions && private))
+            //  myEvents.push(events[i])
+      }
+      return myEvents
+    })
+    .then(events => res.send(events))
+    .catch(err => res.send(err))
+}
 
 module.exports = {
   newEvent,
@@ -207,5 +260,6 @@ module.exports = {
   addAttendance,
   removeAttendance,
   getPublicEvents,
-  getMyEvents
+  getMyEvents,
+  getUsersEvents
 }
