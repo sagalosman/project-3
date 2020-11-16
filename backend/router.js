@@ -37,10 +37,8 @@ router.route('/events/:eventId')
   .put(secureRoute, eventController.editEvent)
   .get(eventController.getEvent)
 
-  router.route('/events/:userId/my-events')
+router.route('/events/:userId/my-events')
   .get(secureRoute, eventController.getMyEvents)
-
-
 
 router.route('/events/:eventId/comments')
   .post(secureRoute, eventController.newComment)
