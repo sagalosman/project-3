@@ -2,10 +2,13 @@ const express = require('express')
 const userController = require('./controllers/userController')
 const profileController = require('./controllers/profileController')
 const eventController = require('./controllers/eventController')
+const imageController = require('./controllers/imageController')
 const secureRoute = require('./middleware/secureRoute')
 const router = express.Router()
 
-
+router.route('/image/:userId')
+  .put(secureRoute, imageController.uploadImage)
+  
 router.route('/login')
   .post(userController.logIn)
 
@@ -13,18 +16,18 @@ router.route('/register')
   .post(userController.createUser)
 
 router.route('/users')
-  .get(userController.getAllUsers)
+  .get(secureRoute, userController.getAllUsers)
 
 router.route('/profile/:userId')
   .post(secureRoute, profileController.setProfile)
   .put(secureRoute, profileController.editProfile)
-  .get(profileController.getProfile)
+  .get(secureRoute, profileController.getProfile)
 
 router.route('/profiles')
-  .get(profileController.getAllProfiles)
+  .get(secureRoute, profileController.getAllProfiles)
 
 router.route('/events')
-  .get(eventController.getAllEvents)
+  .get(secureRoute, eventController.getAllEvents)
   
 
 router.route('/events/public')
@@ -35,7 +38,7 @@ router.route('/events/new-event')
 
 router.route('/events/:eventId')
   .put(secureRoute, eventController.editEvent)
-  .get(eventController.getEvent)
+  .get(secureRoute, eventController.getEvent)
 
   router.route('/events/:userId/my-events')
   .get(secureRoute, eventController.getMyEvents)
