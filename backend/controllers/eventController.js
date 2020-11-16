@@ -247,6 +247,20 @@ function getUsersEvents(req, res) {
     .catch(err => res.send(err))
 }
 
+function eventImage(req, res){
+  const eventId = req.params.eventId
+  User
+    .findById(eventId)
+    .then(image => {
+      console.log(image.params)
+      image.set(req.body)
+      image.save()
+      return image
+    })
+    .then((image) => res.send(image))
+    .catch(error => res.send(error))
+}
+
 module.exports = {
   newEvent,
   newComment,
@@ -261,5 +275,6 @@ module.exports = {
   removeAttendance,
   getPublicEvents,
   getMyEvents,
-  getUsersEvents
+  getUsersEvents,
+  eventImage
 }

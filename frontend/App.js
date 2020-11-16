@@ -6,7 +6,7 @@ import './styles/style.scss'
 
 import Register from './src/components/register'
 import Login from './src/components/login'
-// For environment varibles
+
 console.log(process.env.hello)
 
 const App = () => {

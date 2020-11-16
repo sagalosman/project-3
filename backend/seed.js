@@ -2,7 +2,6 @@ const mongoose = require('mongoose')
 const User = require('./models/userModel')
 const Profile = require('./models/profileModel')
 const Event = require('./models/eventsModel')
-const Image = require('./models/imageModel')
 
 mongoose.connect(
   'mongodb://localhost/cliquedb',
@@ -12,18 +11,6 @@ mongoose.connect(
 
     mongoose.connection.db.dropDatabase()
       .then(() => {
-        return Image.create([
-          {
-            name: 'alis_test_image',
-            url: ''
-          }
-        ])
-      })
-      .then(images => {
-        console.log(`${images.length} image(s) have been created!`)
-        return images
-      })
-      .then(() => {
         return User.create([
           {
             firstname: 'Mitchell',
@@ -32,7 +19,7 @@ mongoose.connect(
             passwordConfirmation: 'mitch',
             username: 'mitty',
             email: 'mitty@mitty.com',
-            photo: 'Warning'
+            image: 'https://res.cloudinary.com/dky2sqc0z/image/upload/v1605526916/1200px-User_font_awesome.svg_oa84gz.png'
           },
           {
             firstname: 'Harry',
@@ -41,7 +28,7 @@ mongoose.connect(
             passwordConfirmation: 'harry',
             username: 'harry',
             email: 'harry@harry.com',
-            photo: 'Warning'
+            image: 'https://res.cloudinary.com/dky2sqc0z/image/upload/v1605526916/1200px-User_font_awesome.svg_oa84gz.png'
           },
           {
             firstname: 'Natasha',
@@ -50,7 +37,7 @@ mongoose.connect(
             passwordConfirmation: 'natasha',
             username: 'natasha',
             email: 'natasha@natasha.com',
-            photo: 'Warning'
+            image: 'https://res.cloudinary.com/dky2sqc0z/image/upload/v1605526916/1200px-User_font_awesome.svg_oa84gz.png'
           },
           {
             firstname: 'Sagal',
@@ -59,7 +46,7 @@ mongoose.connect(
             passwordConfirmation: 'sagal',
             username: 'sagal',
             email: 'sagal@sagal.com',
-            photo: 'Warning'
+            image: 'https://res.cloudinary.com/dky2sqc0z/image/upload/v1605526916/1200px-User_font_awesome.svg_oa84gz.png'
           }
         ])
       })
