@@ -21,8 +21,7 @@ const eventsSchema = new mongoose.Schema({
   private: { type: Boolean },
   creator: { type: mongoose.Schema.ObjectId, ref: 'User', required: true },
   hosts: [{ type: mongoose.Schema.ObjectId, ref: 'User', required: true }],
-  notAttending: [{ type: mongoose.Schema.ObjectId, ref: 'User', required: true }],
-  myEvents:  { type: Array }
+  notAttending: [{ type: mongoose.Schema.ObjectId, ref: 'User', required: true }]
 },
   {
     timestamps: true

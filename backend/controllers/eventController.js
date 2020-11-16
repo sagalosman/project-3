@@ -1,8 +1,5 @@
-const { renderSync } = require('node-sass')
-const { unstable_renderSubtreeIntoContainer } = require('react-dom')
-const { Redirect } = require('react-router-dom')
-const { Template } = require('webpack')
 const Events = require('../models/eventsModel')
+const Profile = require('../models/profileModel')
 
 function newEvent(req, res) {
   const body = req.body
@@ -167,21 +164,29 @@ function getMyEvents(req, res) {
     .find()
     .populate('creator attending notAttending invited hosts myEvnts')
     .then(events => {
+      let myEvents = []
       for (let i = 0; i < events.length; i++) {
-        if (events[i].creator._id.toString() === userId.toString()) {
-         events[i].push(myEvents)
-        } else {
-          console.log('Yo')
-        }
-        // const creatorFilter = events[i].creator._id.toString() === userId.toString()
-        // console.log(events[i])
-        // events.myEvents.push(events[i])
-        // events.save()
-        // const eventsFilters = events[i].invited.find(element => {
-        //   element._id.toString() === userId.toString()
-        // })
-        return events.save()
+        const creatorFilter = events[i].creator._id.toString() === userId.toString()
+        const invitedFilter = events[i].invited.find(element => {
+          return element._id.toString() === userId.toString()
+        })
+        const notAttendingFilter = events[i].notAttending.find(element => {
+          return element._id.toString() === userId.toString()
+        }) 
+        const attendingFilter = events[i].attending.find(element => {
+           return element._id.toString() === userId.toString()
+        })
+        const hostsFilter = events[i].hosts.find(element => {
+          console.log(element._id.toString() === userId.toString())
+       })
+        
+        if (invitedFilter ||
+            creatorFilter || 
+            notAttendingFilter || 
+            attendingFilter ||
+            hostsFilter) myEvents.push(events[i])
       }
+      return myEvents
     })
     .then(events => res.send(events))
     .catch(err => res.send(err))
