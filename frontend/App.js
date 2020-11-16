@@ -4,15 +4,14 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import './styles/style.scss'
 
 
-import Register from './components/register'
-import Login from './components/login'
+import Register from './src/components/register'
+import Login from './src/components/login'
 
 // For environment varibles
 console.log(process.env.hello)
 
 const App = () => (
   <BrowserRouter>
-  <Navbar />
     <Switch>
       {/* <Route exact path="/" component={Home}/> */}
       <Route exact path="/register" component={Register}/>
