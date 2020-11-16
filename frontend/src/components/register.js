@@ -1,9 +1,10 @@
 import React from 'react'
 // import axios from 'axios'
 
-const Login = () => {
+const Register = () => {
 
   
+ 
 }
 
-export default Login
+export default Register

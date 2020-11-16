@@ -65,6 +65,4 @@ router.route('/events/:eventId/attendance/remove')
   .put(secureRoute, eventController.removeAttendance)
 
 
-
-
 module.exports = router
