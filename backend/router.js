@@ -26,9 +26,11 @@ router.route('/profiles')
 router.route('/events')
   .get(eventController.getAllEvents)
 
-
 router.route('/events/public')
   .get(secureRoute, eventController.getPublicEvents)
+
+router.route('/events/:userId')
+  .get(secureRoute, eventController.getUsersEvents)
 
 router.route('/events/new-event')
   .post(secureRoute, eventController.newEvent)
