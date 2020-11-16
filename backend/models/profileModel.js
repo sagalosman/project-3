@@ -10,7 +10,8 @@ const profileSchema = new mongoose.Schema({
   topFriends: [{ type: mongoose.Schema.ObjectId, ref: 'User', required: true }],
   bio: { type: String },
   recentEvents: { type: Array },
-  private: { type: Boolean, required: true }
+  private: { type: Boolean, required: true },
+  myEvents: { type: Array }
 })
 
 profileSchema.plugin(uniqueValidator)

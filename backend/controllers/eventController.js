@@ -1,6 +1,5 @@
-const { Redirect } = require('react-router-dom')
-const { Template } = require('webpack')
 const Events = require('../models/eventsModel')
+const Profile = require('../models/profileModel')
 
 function newEvent(req, res) {
   const body = req.body
@@ -144,7 +143,6 @@ function removeAttendance(req, res) {
       notAttending.push(user)
 
       const invitedUser = event.invited.find(user => user._id.equals(userId))
-
       event.attending.remove(user)
       event.invited.remove(invitedUser)
       return event.save()
@@ -152,7 +150,6 @@ function removeAttendance(req, res) {
     .then(event => res.send(event))
     .catch(err => res.send(err))
 }
-
 
 function getPublicEvents(req, res) {
   Events.find({ private: false })
@@ -162,19 +159,40 @@ function getPublicEvents(req, res) {
 }
 
 function getMyEvents(req, res) {
-  const userId = req.params.userId
-  Events.find()
-    .populate('creator attending notAttending invited hosts')
+  const userId = req.currentUser._id
+  Events
+    .find()
+    .populate('creator attending notAttending invited hosts myEvnts')
     .then(events => {
-      const filteredEvents = events.filter(event => {
-        return event.invited.filter(user => {
-          return user._id === userId
+      let myEvents = []
+      for (let i = 0; i < events.length; i++) {
+        const creatorFilter = events[i].creator._id.toString() === userId.toString()
+        const invitedFilter = events[i].invited.find(element => {
+          return element._id.toString() === userId.toString()
         })
-      })
-      return res.send(filteredEvents)
+        const notAttendingFilter = events[i].notAttending.find(element => {
+          return element._id.toString() === userId.toString()
+        }) 
+        const attendingFilter = events[i].attending.find(element => {
+           return element._id.toString() === userId.toString()
+        })
+        const hostsFilter = events[i].hosts.find(element => {
+          console.log(element._id.toString() === userId.toString())
+       })
+        
+        if (invitedFilter ||
+            creatorFilter || 
+            notAttendingFilter || 
+            attendingFilter ||
+            hostsFilter) myEvents.push(events[i])
+      }
+      return myEvents
     })
+    .then(events => res.send(events))
     .catch(err => res.send(err))
 }
+
+
 
 module.exports = {
   newEvent,

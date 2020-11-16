@@ -7,6 +7,7 @@ const commentSchema = new mongoose.Schema({
   {
     timestamps: true
   })
+ 
 const eventsSchema = new mongoose.Schema({
   eventName: { type: String, required: true },
   location: { type: String, required: true },
