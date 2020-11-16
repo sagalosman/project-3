@@ -4,16 +4,18 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import './styles/style.scss'
 
 
-import Register from './src/components/register'
-import Login from './src/components/login'
+import Register from './src/components/Register'
+import Login from './src/components/Login'
+import Profile from './src/components/Profile'
 // For environment varibles
 console.log(process.env.hello)
 
 const App = () => {
-  <BrowserRouter>
+  return <BrowserRouter>
     <Switch>
       <Route exact path="/register" component={Register} />
       <Route exact path="/login" component={Login} />
+      <Route exact path="/profile" component={Profile} />
     </Switch>
   </BrowserRouter>
 }

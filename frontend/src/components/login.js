@@ -7,7 +7,7 @@ const Login = (props) => {
     username: '',
     email: '',
     password: '',
-    passwordConfirmation: ''
+    // passwordConfirmation: ''
   })
 
   function handleChange(event) {
@@ -53,7 +53,7 @@ const Login = (props) => {
       <div className="field">
         <label className="label">Email</label>
         <input
-          className="input" placeholder="e.g Alex Smith"
+          className="input" placeholder=" e.g Alex Smith"
           type="text"
           onChange={handleChange}
           value={formData.email}
@@ -62,16 +62,17 @@ const Login = (props) => {
       </div>
     <div className="field">
        <label className="label">Password</label>
-      <input className="input" placeholder="e.g Alex Smith"
+      <input className="input" 
         type="password"
         onChange={handleChange}
-        value={formData.passwordConfirmation}
-        name="passwordConfirmation"
+        // value={formData.passwordConfirmation}
+        // name="passwordConfirmation"
       />
     </div >
    
-    <button type="submit" onClick="handle-submit">Log in</button>
-    <a href="" class="discrete" target="_blank">Sign Up</a>
+    <button type="submit" onClick={handleSubmit}>Log in</button>
+    {/* <Link to='/Login'>Sign Up</link> */}
+    <a href="" className="discrete" target="_blank">Sign Up</a>
   </form>
 </div>
 }

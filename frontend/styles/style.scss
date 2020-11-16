@@ -133,15 +133,15 @@ input:not(:placeholder-shown) + label {
 .session {
 display:  flex; 
 flex-direction:  row; 
-width:  auto; 
-height:  auto; 
+width:  500px; 
+height:  735px; 
 margin:  auto auto; 
 background:  #ffffff; 
 border-radius:  4px; 
 box-shadow:  0px 2px 6px -1px rgba(0,0,0,.12);
 }
 .left {
-width:  220px; 
+width:  100px; 
 height:  auto; 
 min-height:  100%; 
 position:  relative; 
