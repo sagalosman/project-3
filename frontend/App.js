@@ -6,11 +6,10 @@ import './styles/style.scss'
 
 import Register from './src/components/register'
 import Login from './src/components/login'
-// For environment varibles
-console.log(process.env.hello)
+
 
 const App = () => {
-  <BrowserRouter>
+  return <BrowserRouter>
     <Switch>
       <Route exact path="/register" component={Register} />
       <Route exact path="/login" component={Login} />
