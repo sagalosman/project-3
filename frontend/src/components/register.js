@@ -31,10 +31,7 @@ const Register = (props) => {
     axios.post('api/register', formData)
       .then(resp => {
         console.log(resp.data)
-
-
-        props.history.push('/login')
-
+        props.history.push('/profile')
       })
   }
 
@@ -47,8 +44,8 @@ const Register = (props) => {
 
     </div>
     <form action="" className="log-in" autoComplete="off">
-      <h4>We are <span>Clique</span></h4>
-      <p></p>
+      <h4 className="title">We are <span>Clique</span></h4>
+      <p className="welcome">Create a new account:</p>
 
       <div className="field">
         <label className="label">First Name</label>
