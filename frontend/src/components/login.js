@@ -6,7 +6,7 @@ const Login = (props) => {
 
   const [formData, updateFormData] = useState({
     email: '',
-    password: '',
+    password: ''
   })
 
   function handleChange(event) {
@@ -34,8 +34,8 @@ const Login = (props) => {
     <div className="left">
     </div>
     <form action="" className="log-in" autoComplete="off">
-      <h4>We are <span>Clique</span></h4>
-      <p>Welcome back! Log in to your account:</p>
+      <h4 className="title">We are <span>Clique</span></h4>
+      <p className="welcome">Welcome back! Log in to your account:</p>
       <div className="field">
         <label className="label">Email</label>
         <input

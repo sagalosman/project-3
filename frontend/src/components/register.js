@@ -35,7 +35,8 @@ const Register = (props) => {
     <div className="left">
     </div>
     <form action="" className="log-in" autoComplete="off">
-      <h4>We are <span>Clique</span></h4>
+      <h4 className="title">We are <span>Clique</span></h4>
+      <p className="welcome">Create a new account:</p>
 
       <div className="field">
         <label className="label">First Name</label>
@@ -71,24 +72,12 @@ const Register = (props) => {
       </div>
 
       <div className="field">
-        <label className="label">Email</label>
-        <input
-          className="input"
-          type="text"
-          onChange={handleChange}
-          value={formData.email}
-          name="email"
-        />
-      </div>
-
-      <div className="field">
         <label className="label">Password</label>
         <input className="input"
           type="password"
           onChange={handleChange}
         />
-      </div>
-
+      </div >
       <div className="field">
         <label className="label">Password Confirmation</label>
         <input className="input"
@@ -99,8 +88,8 @@ const Register = (props) => {
         />
       </div >
 
-      <button type="submit" onClick={handleSubmit}>Sign Up</button>
-      <Link to='/' className="discrete">Have an account? Login</Link>
+      <button className="button" type="submit" onClick={handleSubmit}>Sign Up</button>
+      {!localStorage.getItem('token') && <Link to='/' className="discrete">Have an account? Login</Link>}
     </form>
   </div>
 }
