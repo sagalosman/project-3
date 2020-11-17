@@ -19,29 +19,20 @@ const Register = (props) => {
       ...formData,
       [name]: value
     }
-
     updateFormData(data)
   }
 
   function handleSubmit(event) {
-
     event.preventDefault()
-
 
     axios.post('api/register', formData)
       .then(resp => {
-        console.log(resp.data)
-        props.history.push('/profile')
+        props.history.push('/')
       })
   }
 
-  console.log(formData)
-
-
   return <div className="session">
     <div className="left">
-
-
     </div>
     <form action="" className="log-in" autoComplete="off">
       <h4 className="title">We are <span>Clique</span></h4>
@@ -50,7 +41,7 @@ const Register = (props) => {
       <div className="field">
         <label className="label">First Name</label>
         <input
-          className="input" placeholder=" e.g Alex "
+          className="input" 
           type="text"
           onChange={handleChange}
           value={formData.firstname}
@@ -61,33 +52,25 @@ const Register = (props) => {
       <div className="field">
         <label className="label">Last Name</label>
         <input
-          className="input" placeholder=" e.g Smith"
+          className="input"
           type="text"
           onChange={handleChange}
           value={formData.last}
           name="lastname"
         />
-        <div className="field">
-          <label className="label">Username</label>
-          <input
-            className="input" placeholder=" e.g AlexSmith"
-            type="text"
-            onChange={handleChange}
-            value={formData.username}
-            name="text"
-          />
-        </div>
-        <div className="field">
-          <label className="label">Email</label>
-          <input
-            className="input" placeholder=" e.g Alex@Smith.com"
-            type="text"
-            onChange={handleChange}
-            value={formData.email}
-            name="email"
-          />
-        </div>
       </div>
+
+      <div className="field">
+        <label className="label">Username</label>
+        <input
+          className="input"
+          type="text"
+          onChange={handleChange}
+          value={formData.username}
+          name="username"
+        />
+      </div>
+
       <div className="field">
         <label className="label">Password</label>
         <input className="input"
@@ -106,7 +89,7 @@ const Register = (props) => {
       </div >
 
       <button className="button" type="submit" onClick={handleSubmit}>Sign Up</button>
-      {!localStorage.getItem('token') && <Link to='/' className="discrete">Have an account? Login</Link>}
+      {<Link to='/' className="discrete">Have an account? Login</Link>}
     </form>
   </div>
 }

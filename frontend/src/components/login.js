@@ -39,27 +39,27 @@ const Login = (props) => {
       <div className="field">
         <label className="label">Email</label>
         <input
-          className="input" placeholder=" e.g Alex Smith"
+          className="input"
           type="text"
           onChange={handleChange}
           value={formData.email}
           name="email"
         />
       </div>
-      <div className="field">
-        <label className="label">Password</label>
-        <input className="input"
-          type="password"
-          onChange={handleChange}
-          value={formData.password}
-          name="password"
-        />
-      </div >
-
-      <button className="button" type="submit" onClick={handleSubmit}>Log in</button>
-      <Link to="/register" className="discrete">Sign Up</Link>
-    </form>
-  </div>
+    <div className="field">
+       <label className="label">Password</label>
+      <input className="input" 
+        type="password"
+        onChange={handleChange}
+        value={formData.password}
+        name="password"
+      />
+    </div >
+   
+    <button className="button" type="submit" onClick={handleSubmit}>Log in</button>
+    <Link to="/register" className="discrete">Not registered? Sign up</Link>
+  </form>
+</div>
 }
 
 export default Login
