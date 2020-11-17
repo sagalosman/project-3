@@ -31,10 +31,7 @@ const Register = (props) => {
     axios.post('api/register', formData)
       .then(resp => {
         console.log(resp.data)
-
-
-        props.history.push('/login')
-
+        props.history.push('/profile')
       })
   }
 
