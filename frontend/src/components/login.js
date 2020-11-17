@@ -39,7 +39,7 @@ const Login = (props) => {
       <div className="field">
         <label className="label">Email</label>
         <input
-          className="input" placeholder=" e.g Alex Smith"
+          className="input"
           type="text"
           onChange={handleChange}
           value={formData.email}
@@ -57,7 +57,7 @@ const Login = (props) => {
     </div >
    
     <button type="submit" onClick={handleSubmit}>Log in</button>
-    <Link to="/register" className="discrete">Sign Up</Link>
+    <Link to="/register" className="discrete">Not registered? Sign up</Link>
   </form>
 </div>
 }

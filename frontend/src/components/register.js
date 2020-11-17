@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
 
@@ -19,99 +19,90 @@ const Register = (props) => {
       ...formData,
       [name]: value
     }
-
     updateFormData(data)
   }
 
   function handleSubmit(event) {
-
     event.preventDefault()
-
 
     axios.post('api/register', formData)
       .then(resp => {
-        console.log(resp.data)
-
-
-        props.history.push('/login')
-
+        props.history.push('/')
       })
   }
 
-  console.log(formData)
-
-
   return <div className="session">
     <div className="left">
-
-
     </div>
     <form action="" className="log-in" autoComplete="off">
       <h4>We are <span>Clique</span></h4>
-      <p></p>
 
       <div className="field">
         <label className="label">First Name</label>
         <input
-          className="input" placeholder= " e.g Alex "
+          className="input" 
           type="text"
           onChange={handleChange}
           value={formData.firstname}
           name="firstname"
         />
       </div>
-      
+
       <div className="field">
         <label className="label">Last Name</label>
         <input
-          className="input" placeholder= " e.g Smith"
+          className="input"
           type="text"
           onChange={handleChange}
           value={formData.last}
           name="lastname"
         />
-           <div className="field">
+      </div>
+
+      <div className="field">
         <label className="label">Username</label>
         <input
-          className="input" placeholder= " e.g AlexSmith"
+          className="input"
           type="text"
           onChange={handleChange}
           value={formData.username}
-          name="text"
+          name="username"
         />
       </div>
+
       <div className="field">
         <label className="label">Email</label>
         <input
-          className="input" placeholder= " e.g Alex@Smith.com"
+          className="input"
           type="text"
           onChange={handleChange}
           value={formData.email}
           name="email"
         />
       </div>
-      </div>
+
       <div className="field">
-       <label className="label">Password</label>
-      <input className="input"
-        type="password"
-        onChange={handleChange}
-      />
-    </div >
-    <div className="field">
-       <label className="label">Password Confirmation</label>
-      <input className="input"
-        type="password"
-        onChange={handleChange}
-        value={formData.passwordConfirmation}
-        name="passwordConfirmation"
-      />
-    </div >
-   
-    <button type="submit" onClick={handleSubmit}>Sign Up</button>
-    {!localStorage.getItem('token') && <Link to='/' className="discrete">Have an account? Login</Link>}
-  </form>
-</div>
+        <label className="label">Password</label>
+        <input className="input"
+          type="password"
+          onChange={handleChange}
+        />
+      </div>
+
+      <div className="field">
+        <label className="label">Password Confirmation</label>
+        <input className="input"
+          type="password"
+          onChange={handleChange}
+          value={formData.passwordConfirmation}
+          name="passwordConfirmation"
+        />
+      </div >
+
+      <button type="submit" onClick={handleSubmit}>Sign Up</button>
+      <Link to='/' className="discrete">Have an account? Login</Link>
+    </form>
+  </div>
 }
 
 export default Register
