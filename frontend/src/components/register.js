@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import axios from 'axios'
+import { Link } from 'react-router-dom'
 
 const Register = (props) => {
 
@@ -11,9 +12,7 @@ const Register = (props) => {
   })
 
   function handleChange(event) {
-
     const name = event.target.name
-
     const value = event.target.value
 
     const data = {
@@ -110,8 +109,7 @@ const Register = (props) => {
     </div >
    
     <button type="submit" onClick={handleSubmit}>Sign Up</button>
-    {/* <link to='/Login'>Have an account? Login</link> */}
-    <a href="" class="discrete" target="_blank">Have an account? Login</a>
+    {!localStorage.getItem('token') && <Link to='/' className="discrete">Have an account? Login</Link>}
   </form>
 </div>
 }
