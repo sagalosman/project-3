@@ -34,8 +34,8 @@ const Login = (props) => {
     <div className="left">
     </div>
     <form action="" className="log-in" autoComplete="off">
-      <h4>We are <span>Clique</span></h4>
-      <p>Welcome back! Log in to your account:</p>
+      <h4 className="title">We are <span>Clique</span></h4>
+      <p className="welcome">Welcome back! Log in to your account:</p>
       <div className="field">
         <label className="label">Email</label>
         <input
@@ -56,7 +56,7 @@ const Login = (props) => {
         />
       </div >
 
-      <button type="submit" onClick={handleSubmit}>Log in</button>
+      <button className="button" type="submit" onClick={handleSubmit}>Log in</button>
       <Link to="/register" className="discrete">Sign Up</Link>
     </form>
   </div>
