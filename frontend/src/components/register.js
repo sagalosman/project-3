@@ -108,7 +108,7 @@ const Register = (props) => {
         />
       </div >
 
-      <button type="submit" onClick={handleSubmit}>Sign Up</button>
+      <button className="button" type="submit" onClick={handleSubmit}>Sign Up</button>
       {!localStorage.getItem('token') && <Link to='/' className="discrete">Have an account? Login</Link>}
     </form>
   </div>
