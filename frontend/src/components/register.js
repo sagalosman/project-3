@@ -47,8 +47,8 @@ const Register = (props) => {
 
     </div>
     <form action="" className="log-in" autoComplete="off">
-      <h4>We are <span>Clique</span></h4>
-      <p></p>
+      <h4 className="title">We are <span>Clique</span></h4>
+      <p className="welcome">Create a new account:</p>
 
       <div className="field">
         <label className="label">First Name</label>
@@ -108,7 +108,7 @@ const Register = (props) => {
         />
       </div >
 
-      <button type="submit" onClick={handleSubmit}>Sign Up</button>
+      <button className="button" type="submit" onClick={handleSubmit}>Sign Up</button>
       {!localStorage.getItem('token') && <Link to='/' className="discrete">Have an account? Login</Link>}
     </form>
   </div>
