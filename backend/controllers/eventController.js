@@ -304,6 +304,7 @@ function getRecentEvents(req, res) {
 
 function eventImage(req, res){
   const eventId = req.params.eventId
+  console.log(eventId)
   User
     .findById(eventId)
     .then(image => {
