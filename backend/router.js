@@ -4,7 +4,7 @@ const profileController = require('./controllers/profileController')
 const eventController = require('./controllers/eventController')
 const secureRoute = require('./middleware/secureRoute')
 const router = express.Router()
-  
+
 router.route('/login')
   .post(userController.logIn)
 
@@ -17,8 +17,11 @@ router.route('/users')
 router.route('/profile/:userId')
   .put(secureRoute, userController.uploadImage)
   .post(secureRoute, profileController.setProfile)
+  // .put(secureRoute, profileController.editProfile)
+  .get(profileController.getProfile)
+
+router.route('/profile/editprofile/:userId')
   .put(secureRoute, profileController.editProfile)
-  .get(secureRoute, profileController.getProfile)
 
 router.route('/profile/:userId/friends')
   .put(secureRoute, profileController.addFriend)
@@ -35,7 +38,7 @@ router.route('/events')
   .get(eventController.getAllEvents)
 
 router.route('/events/public')
-  .get(secureRoute, eventController.getPublicEvents)
+  .get(eventController.getPublicEvents)
 
 router.route('/events/:userId')
   .get(secureRoute, eventController.getUsersEvents)
@@ -51,7 +54,7 @@ router.route('/events/:eventId')
   .get(secureRoute, eventController.getEvent)
 
 router.route('/events/:userId/my-events')
-  .get(secureRoute, eventController.getMyEvents)
+  .get(eventController.getMyEvents)
 
 router.route('/events/:eventId/comments')
   .post(secureRoute, eventController.newComment)

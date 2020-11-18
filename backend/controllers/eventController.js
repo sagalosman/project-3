@@ -195,6 +195,7 @@ function getMyEvents(req, res) {
 function getUsersEvents(req, res) {
   const userId = req.params.userId
   const currentUser = req.currentUser._id.toString()
+  console.log(req.currentUser._id)
 
   Events
     .find()
@@ -304,6 +305,7 @@ function getRecentEvents(req, res) {
 
 function eventImage(req, res){
   const eventId = req.params.eventId
+  console.log(eventId)
   User
     .findById(eventId)
     .then(image => {

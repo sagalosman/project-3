@@ -5,6 +5,8 @@ import { Link } from 'react-router-dom'
 const Register = (props) => {
 
   const [formData, updateFormData] = useState({
+    firstName: '',
+    lastName: '',
     username: '',
     email: '',
     password: '',
@@ -70,6 +72,16 @@ const Register = (props) => {
           name="username"
         />
       </div>
+      <div className="field">
+        <label className="label">Email</label>
+        <input
+          className="input"
+          type="text"
+          onChange={handleChange}
+          value={formData.email}
+          name="email"
+        />
+      </div>
 
       <div className="field">
         <label className="label">Password</label>
@@ -78,6 +90,7 @@ const Register = (props) => {
           onChange={handleChange}
         />
       </div >
+      
       <div className="field">
         <label className="label">Password Confirmation</label>
         <input className="input"
