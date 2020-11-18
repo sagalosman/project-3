@@ -18,12 +18,9 @@ const App = () => {
       <Route exact path="/register" component={Register} />
       <ProtectedRoute exact path="/profile/:userId" component={ViewProfile} />
       <ProtectedRoute exact path="/profile" component={Profile} />
-<<<<<<< HEAD
       {/* <ProtectedRoute exact path="/EditProfile" component={EditProfile}/> */}
       <Route exact path="/EditProfile/:userId" component={EditProfile}/>
-=======
       <ProtectedRoute exact path="/EditProfile" component={EditProfile}/>
->>>>>>> d058f9318d3138a2c3dad08cc6602131b8d0609f
       <Route exact path="/" component={Login} />
       <Route exact path="/search" component={Search} />
     </Switch>
