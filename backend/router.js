@@ -12,7 +12,7 @@ router.route('/register')
   .post(userController.createUser)
 
 router.route('/users')
-  .get(secureRoute, userController.getAllUsers)
+  .get(userController.getAllUsers)
 
 router.route('/profile/:userId')
   .put(secureRoute, userController.uploadImage)

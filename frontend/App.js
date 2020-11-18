@@ -7,6 +7,7 @@ import Register from './src/components/Register'
 import Login from './src/components/Login'
 import Profile from './src/components/Profile'
 import ProtectedRoute from './src/components/ProtectedRoute'
+import Search from './src/components/Search'
 
 const App = () => {
   return <BrowserRouter>
@@ -14,6 +15,7 @@ const App = () => {
       <Route exact path="/register" component={Register} />
       <ProtectedRoute exact path="/profile" component={Profile} />
       <Route exact path="/" component={Login} />
+      <Route exact path="/search" component={Search} />
     </Switch>
   </BrowserRouter>
 }
