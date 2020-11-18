@@ -12,7 +12,7 @@ body {
   width: 100vw;
 }
 main {
-  height: calc(100vh - 300px);
+  height: calc(100vh - 320px);
   width: 100vw;
   background-color: rgb(248, 248, 248);
 }
@@ -175,6 +175,121 @@ svg {
   width: 100%;
 }
 
+//************** View Profile ***************
+.flex-container {
+  display: flex; 
+  background: $primary;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+  align-items: center;
+  color: white;
+  text-align: start;
+
+  .flex-column {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    text-align: center;
+  }
+  .flex-row {
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: center;
+  }
+  
+  .profile-header > div {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    width: auto auto;
+    margin: 20px;
+  }
+  
+  .profile-header {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    margin-top: 30px;
+    width: 90%;
+    height: 100px;
+
+    #first-row > div {
+      width: 33%;
+      margin: 10px;
+    }
+    #second-row > div {
+      width: 33%;
+    }
+  }
+
+  #bio {
+    text-align: left;
+    width: 90%;
+    margin: 20px 0px 0px 20px;
+
+    h6 {
+      margin-bottom: 5px;
+    }
+  }
+
+  #add-friend {
+  margin-top: 15px;
+  width: 90%;
+
+    button {
+      margin-left: 5px;
+      width: 45%;
+      border-radius: 5px;
+      text-decoration: none;
+      background: none;
+      color: white;
+      border: 1px white solid;
+    }
+    button:visited {
+      background-color: white;
+      color: $primary
+    }
+  }
+
+  #events {
+    width: 90%;
+
+    div {
+      width: 100%;
+      margin: 10px 0px 0px 5px;
+    }
+  }
+
+  
+
+
+
+  h4 {
+    padding-bottom: 10px;
+  }
+
+  .flex-1 {
+    display: flex;
+    flex: 1;
+  }
+
+  .flex-2 {
+    flex: 4;
+  }
+
+  Link {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+.view-profile > div {
+  height: 30px;
+  justify-content: center;
+  align-items: center;
+}
 // ************** NavBar **************
 
 .navbar {
@@ -274,10 +389,6 @@ svg {
   height: auto;
 }
 
-.event-img {
-  width: 40%;
-}
-
 .event {
   border-radius: 10px;
   width: 100%;
@@ -317,12 +428,39 @@ svg {
 
 .event-numbers {
   display: flex;
+  width: 60%;
+  justify-content: space-between;
 }
 
 .event-num {
-  padding-right: 8%;
   font-size: 25px;
   font-family: 'Bebas Neue', cursive;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 50px;
+  width: 70px;
+}
+
+.event-like {
+  height: 50px;
+  width: 50px;
+  background: url('../src/img/heart-icon.png');
+  background-size: contain;
+}
+
+.event-attending {
+  height: 50px;
+  width: 50px;
+  background: url('../src/img/profile-icon.png');
+  background-size: contain;
+}
+
+.event-comments {
+  height: 50px;
+  width: 50px;
+  background: url('../src/img/comment-icon.png');
+  background-size: contain;
 }
 
 .event-info {
@@ -335,6 +473,152 @@ svg {
   font-weight: 600;
   font-family: 'Bebas Neue', cursive;
 }
+
+.event-left {
+  width: 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.event-img {
+  border-radius: 10px;
+  height: 300px;
+  width: 300px;
+}
+
+// ************** One Event Page **************
+
+.column {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.one-event-content,
+.one-event-comments {
+  height: 60%;
+  width: 90%;
+  background-color: rgb(220, 200, 255);
+  border: 4px solid rgb(129, 112, 160);
+  border-radius: 10px;
+  margin: 2%;
+}
+
+.one-event-comments {
+  height: 32%;
+}
+
+.one-event-img {
+  height: 90%;
+  width: auto;
+  border-radius: 10px;
+  border: 5px solid rgb(129, 112, 160);
+  margin: 3%;
+}
+
+.one-event-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 40%;
+}
+
+.one-event-title {
+  width: 410px;
+  font-family: 'Bebas Neue', cursive;
+  font-size: 80px;
+  text-align: center;
+  margin: 3%;
+}
+
+.one-event-bottom {
+  margin: 3%;
+  border: 5px solid rgb(129, 112, 160);
+  border-radius: 10px;
+  height: 54%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+.one-event-numbers {
+  width: 50%;
+  justify-content: space-between;
+}
+
+.comments-list {
+  height: 58%;
+  // border: 5px solid rgb(129, 112, 160);
+  border-radius: 10px;
+  margin: 2%;
+  overflow-y: scroll;
+}
+
+.add-comment {
+  height: 30%;
+  border-radius: 10px;
+  margin: 0% 2% 2%;
+  display: flex;
+}
+
+.textarea {
+  height: 84%;
+  background-color: rgb(237, 227, 255);
+  margin: 1%;
+  width: 75%;
+  font-size: 30px;
+  border-radius: 10px;
+  border: 5px solid rgb(129, 112, 160);
+  padding: 1%;
+  font-family: 'Bebas Neue', cursive;
+}
+
+.post-comment {
+  height: 97%;
+  padding: 1%;
+  width: 25%;
+  margin: 1%;
+  box-shadow: 0 5px 0 rgb(129, 112, 160);
+  border-radius: 10px;
+  background-color: rgb(237, 227, 255);
+  font-size: 50px;
+  font-family: 'Bebas Neue', cursive;
+}
+
+.comment {
+  height: 30%;
+  width: 97%;
+  margin: 1%;
+  border-bottom: 5px solid rgb(129, 112, 160);
+}
+
+.comment-top {
+  display: flex;
+  align-items: center;
+}
+
+.comment-name {
+  margin-right: 3%;
+  font-size: 40px;
+  font-family: 'Bebas Neue', cursive;
+}
+
+.comment-time {
+  font-size: 20px;
+}
+
+.comment-text {
+  margin: 1%;
+  font-size: 30px;
+}
+
+
+
+
 // Edit Page
 .editSession {
   display:  flex; 
@@ -521,4 +805,10 @@ svg {
   -webkit-box-shadow: 0px 0px 5px 5px rgb(182,157,230);
   -moz-box-shadow: 0px 0px 5px 5px rgb(182,157,230);
   box-shadow: 0px 0px 5px 5px rgb(182,157,230);
+<<<<<<< HEAD
 }
+=======
+}
+
+
+>>>>>>> d058f9318d3138a2c3dad08cc6602131b8d0609f
