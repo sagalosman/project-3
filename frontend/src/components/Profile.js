@@ -1,10 +1,14 @@
 import React from 'react'
 import axios from 'axios'
+import NavBar from './NavBar'
 
 const Profile = () => {
-  return <div>
-    <h1>Hello</h1>
-  </div>
+  return <>
+    <main>
+      <h1>Hello</h1>
+    </main>
+    <NavBar />
+  </>
 }
 
 export default Profile

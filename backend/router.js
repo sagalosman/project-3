@@ -35,7 +35,7 @@ router.route('/events')
   .get(eventController.getAllEvents)
 
 router.route('/events/public')
-  .get(secureRoute, eventController.getPublicEvents)
+  .get(eventController.getPublicEvents)
 
 router.route('/events/:userId')
   .get(secureRoute, eventController.getUsersEvents)
