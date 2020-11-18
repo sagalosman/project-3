@@ -20,7 +20,7 @@ router.route('/profile/:userId')
   // .put(secureRoute, profileController.editProfile)
   .get(secureRoute, profileController.getProfile)
 
-router.route('/profile/editProfile/:userId')
+router.route('/profile/editprofile/:userId')
   .put(secureRoute, profileController.editProfile)
 
 router.route('/profile/:userId/friends')
