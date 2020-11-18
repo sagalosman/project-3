@@ -18,7 +18,7 @@ router.route('/profile/:userId')
   .put(secureRoute, userController.uploadImage)
   .post(secureRoute, profileController.setProfile)
   // .put(secureRoute, profileController.editProfile)
-  .get(secureRoute, profileController.getProfile)
+  .get(profileController.getProfile)
 
 router.route('/profile/editprofile/:userId')
   .put(secureRoute, profileController.editProfile)
@@ -54,7 +54,7 @@ router.route('/events/:eventId')
   .get(secureRoute, eventController.getEvent)
 
 router.route('/events/:userId/my-events')
-  .get(secureRoute, eventController.getMyEvents)
+  .get(eventController.getMyEvents)
 
 router.route('/events/:eventId/comments')
   .post(secureRoute, eventController.newComment)

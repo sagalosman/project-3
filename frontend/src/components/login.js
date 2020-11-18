@@ -20,6 +20,7 @@ const Login = (props) => {
     updateFormData(data)
   }
 
+  console.log(formData._id)
   function handleSubmit(event) {
     event.preventDefault()
     axios.post('/api/login', formData)

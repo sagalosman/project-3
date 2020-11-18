@@ -195,6 +195,7 @@ function getMyEvents(req, res) {
 function getUsersEvents(req, res) {
   const userId = req.params.userId
   const currentUser = req.currentUser._id.toString()
+  console.log(req.currentUser._id)
 
   Events
     .find()
