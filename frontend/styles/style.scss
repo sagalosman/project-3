@@ -805,8 +805,11 @@ svg {
   -webkit-box-shadow: 0px 0px 5px 5px rgb(182,157,230);
   -moz-box-shadow: 0px 0px 5px 5px rgb(182,157,230);
   box-shadow: 0px 0px 5px 5px rgb(182,157,230);
+
 }
-}
+
+
+
 
 
 // SEARCH------------>
@@ -817,6 +820,7 @@ svg {
     background-color: #F7CAC9;
     font-family: 'Raleway', sans-serif;
 }
+
 
 .search {
     &__container {
@@ -870,3 +874,4 @@ svg {
         }
     }
 }
+

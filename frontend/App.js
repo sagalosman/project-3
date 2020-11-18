@@ -18,37 +18,16 @@ const App = () => {
       <Route exact path="/register" component={Register} />
       <ProtectedRoute exact path="/profile/:userId" component={ViewProfile} />
       <ProtectedRoute exact path="/profile" component={Profile} />
+<<<<<<< HEAD
+      {/* <ProtectedRoute exact path="/EditProfile" component={EditProfile}/> */}
+      <Route exact path="/EditProfile/:userId" component={EditProfile}/>
+=======
       <ProtectedRoute exact path="/EditProfile" component={EditProfile}/>
+>>>>>>> d058f9318d3138a2c3dad08cc6602131b8d0609f
       <Route exact path="/" component={Login} />
       <Route exact path="/search" component={Search} />
     </Switch>
   </BrowserRouter>
 }
 
-//  const [image, setImage] = useState('')
-
-//   function handleUpload() {
-//     window.cloudinary.createUploadWidget(
-//       {
-//         cloudName: 'dky2sqc0z',
-//         uploadPreset: 'clique1',
-//         cropping: true
-//       },
-//       (err, result) => {
-//         if (result.event !== 'success') {
-//           return
-//         }
-//         Axios.put('/api/image/alis_test_image', { url: result.info.secure_url })
-//           .then((res) => setImage(res.data))
-//       }
-//     ).open()
-//   }
-
-//   console.log(image)
-//   return <>
-//   <img src={image.url}/>
-//     <button onClick={handleUpload}
-//     >Upload Image
-//     </button>
-//   </>
 export default App
