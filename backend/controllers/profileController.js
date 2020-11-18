@@ -24,7 +24,7 @@ function editProfile(req, res) {
 
 function getProfile(req, res) {
   Profile.findOne({ user: { _id: req.params.userId } })
-    .populate('user friends topFriends')
+    .populate('user friends events topFriends')
     .then(profile => {
       res.send(profile)
     })

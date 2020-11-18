@@ -178,13 +178,18 @@ svg {
 //************** View Profile ***************
 .flex-container {
   display: flex; 
-  background: $primary;
   flex-direction: column;
-  width: 100vw;
-  height: 100vh;
   align-items: center;
-  color: white;
   text-align: start;
+
+.profile-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 100px;
+  border-radius: 100%;
+}
 
   .flex-column {
     display: flex;
@@ -203,17 +208,35 @@ svg {
     display: flex;
     align-content: center;
     justify-content: center;
-    width: auto auto;
+    width: 100vw;
     margin: 20px;
   }
   
   .profile-header {
+    background-color: $primary;
+    color: white;
+    margin: 15px;
+    border: 1px solid grey;
     display: flex;
-    justify-content: center;
-    align-content: center;
-    margin-top: 30px;
     width: 90%;
-    height: 100px;
+    height: 150px;
+
+  
+    h2 {
+      font-size: 30px;
+    }
+
+    h3 {
+      font-size: 26px;
+    }
+
+    p {
+      font-size: 24px;
+    }
+
+   img {
+     margin-left: 50px;
+   }
 
     #first-row > div {
       width: 33%;
@@ -227,25 +250,37 @@ svg {
   #bio {
     text-align: left;
     width: 90%;
-    margin: 20px 0px 0px 20px;
+    border: 1px solid grey;
+    background: $primary;
+    height: 130px;
+    color: white;
+    justify-content: center;
+    // align-items: center;
+    text-align: left;
+    margin-bottom: 20px;
 
-    h6 {
+    h2 {
       margin-bottom: 5px;
     }
   }
 
   #add-friend {
   margin-top: 15px;
-  width: 90%;
+  width: 100vw;
+  display: flex;
+  align-content: center;
+  justify-content: space-evenly;
+  margin-bottom: 20px;
 
     button {
-      margin-left: 5px;
-      width: 45%;
+      width: 33%;
+      height: 40px;
+      font-size: 20px;
       border-radius: 5px;
       text-decoration: none;
       background: none;
-      color: white;
-      border: 1px white solid;
+      color: $primary;
+      border: 1px $primary solid;
     }
     button:visited {
       background-color: white;
@@ -254,29 +289,24 @@ svg {
   }
 
   #events {
-    width: 90%;
-
-    div {
-      width: 100%;
-      margin: 10px 0px 0px 5px;
-    }
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
   }
-
-  
-
-
 
   h4 {
     padding-bottom: 10px;
   }
 
   .flex-1 {
-    display: flex;
+    // display: flex;
     flex: 1;
   }
 
   .flex-2 {
-    flex: 4;
+    // display: flex;
+    flex: 2;
   }
 
   Link {
@@ -287,6 +317,7 @@ svg {
 
 .view-profile > div {
   height: 30px;
+  width: 100%;
   justify-content: center;
   align-items: center;
 }
