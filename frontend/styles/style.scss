@@ -1,6 +1,7 @@
-img {
-  max-width: 500px;
-}
+// img {
+//   max-width: 500px;
+// }
+
 * {
   font-family: -apple-system, BlinkMacSystemFont, "San Francisco", Helvetica, Arial, sans-serif;
 font-weight:  300;
@@ -167,4 +168,120 @@ svg {
   flex-direction: column;
   margin-bottom: 20px;
   width: 100%;
+}
+
+//************** View Profile ***************
+.flex-container {
+  display: flex; 
+  background: $primary;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+  align-items: center;
+  color: white;
+  text-align: start;
+
+  .flex-column {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    text-align: center;
+  }
+  .flex-row {
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: center;
+  }
+  
+  .profile-header > div {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    width: auto auto;
+    margin: 20px;
+  }
+  
+  .profile-header {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    margin-top: 30px;
+    width: 90%;
+    height: 100px;
+
+    #first-row > div {
+      width: 33%;
+      margin: 10px;
+    }
+    #second-row > div {
+      width: 33%;
+    }
+  }
+
+  #bio {
+    text-align: left;
+    width: 90%;
+    margin: 20px 0px 0px 20px;
+
+    h6 {
+      margin-bottom: 5px;
+    }
+  }
+
+  #add-friend {
+  margin-top: 15px;
+  width: 90%;
+
+    button {
+      margin-left: 5px;
+      width: 45%;
+      border-radius: 5px;
+      text-decoration: none;
+      background: none;
+      color: white;
+      border: 1px white solid;
+    }
+    button:visited {
+      background-color: white;
+      color: $primary
+    }
+  }
+
+  #events {
+    width: 90%;
+
+    div {
+      width: 100%;
+      margin: 10px 0px 0px 5px;
+    }
+  }
+
+  
+
+
+
+  h4 {
+    padding-bottom: 10px;
+  }
+
+  .flex-1 {
+    display: flex;
+    flex: 1;
+  }
+
+  .flex-2 {
+    flex: 4;
+  }
+
+  Link {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+.view-profile > div {
+  height: 30px;
+  justify-content: center;
+  align-items: center;
 }
