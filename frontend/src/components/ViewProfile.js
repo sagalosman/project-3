@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 // import NavBar from './NavBar'
 
 const ViewProfile = (props) => {
-  const userId = '5fb4ea4b7c6faf3ab025ca68'
+  const userId = '5fb4f8aec81181045fdeba4c'
   const [viewProfile, updateViewProfile] = useState({})
   const [viewEvents, updateViewEvents] = useState([])
 
@@ -16,30 +16,30 @@ const ViewProfile = (props) => {
       })
   }, [])
 
-  // useEffect(() => {
-  //   axios.get(`/api/events/${userId}`)
-  //   .then(resp => {
-  //     updateViewEvents(resp.data)
-  //     console.log(resp.data)
-  //   })
-  // }, [])
+  useEffect(() => {
+    axios.get(`/api/events/${userId}`)
+      .then(resp => {
+        updateViewEvents(resp.data)
+        console.log(resp.data)
+      })
+  }, [])
 
   const addFriend = (event) => {
     event.preventDefault()
     event.value = 'selected'
     axios.put(`/api/profile/${friend}/friends`)
-    .then(resp => {
-      resp.history.push()
-    })
+      .then(resp => {
+        resp.history.push()
+      })
   }
 
   const addTopFriend = (event) => {
     event.preventDefault()
     event.value = 'selected'
     axios.put(`/api/profile/${friend}/top-friends`)
-    .then(resp => {
-      resp.history.push()
-    })
+      .then(resp => {
+        resp.history.push()
+      })
   }
 
   if (!viewProfile.user) {
@@ -84,8 +84,8 @@ const ViewProfile = (props) => {
         <h6>{viewProfile.bio}</h6>
       </div>
       <div id="add-friend">
-          <button onClick={addFriend}>Friend</button>
-          <button onClick={addTopFriend}>Add Top Friend</button>
+        <button onClick={addFriend}>Friend</button>
+        <button onClick={addTopFriend}>Add Top Friend</button>
       </div>
       <article id="events">
         <div className="flex-row">

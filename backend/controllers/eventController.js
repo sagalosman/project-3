@@ -11,9 +11,11 @@ function newEvent(req, res) {
 }
 
 function getEvent(req, res) {
+  console.log(req)
   Events.findById(req.params.eventId)
-    .populate('creator attending notAttending invited hosts')
+    .populate('creator attending notAttending invited hosts comments.user')
     .then(event => {
+      console.log(event)
       res.send(event)
     })
     .catch(err => res.send(err))
