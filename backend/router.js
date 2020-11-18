@@ -35,12 +35,16 @@ router.route('/profiles')
   .get(secureRoute, profileController.getAllProfiles)
 
 router.route('/events')
-  .get(eventController.getAllEvents)
+  .get(secureRoute, eventController.getAllEvents)
 
 router.route('/events/public')
-  .get(eventController.getPublicEvents)
+  .get(secureRoute, eventController.getPublicEvents)
 
-router.route('/events/:userId')
+router.route('/events/:eventId')
+  .put(secureRoute, eventController.editEvent)
+  .get(secureRoute, eventController.getEvent)
+
+router.route('/events/users/:userId')
   .get(secureRoute, eventController.getUsersEvents)
 
 router.route('/events/:userId/recent-events')
@@ -49,12 +53,8 @@ router.route('/events/:userId/recent-events')
 router.route('/events/new-event')
   .post(secureRoute, eventController.newEvent)
 
-router.route('/events/:eventId')
-  .put(secureRoute, eventController.editEvent)
-  .get(secureRoute, eventController.getEvent)
-
 router.route('/events/:userId/my-events')
-  .get(eventController.getMyEvents)
+  .get(secureRoute, eventController.getMyEvents)
 
 router.route('/events/:eventId/comments')
   .post(secureRoute, eventController.newComment)
