@@ -17,8 +17,11 @@ router.route('/users')
 router.route('/profile/:userId')
   .put(secureRoute, userController.uploadImage)
   .post(secureRoute, profileController.setProfile)
-  .put(secureRoute, profileController.editProfile)
+  // .put(secureRoute, profileController.editProfile)
   .get(secureRoute, profileController.getProfile)
+
+router.route('/profile/editprofile/:userId')
+  .put(secureRoute, profileController.editProfile)
 
 router.route('/profile/:userId/friends')
   .put(secureRoute, profileController.addFriend)
