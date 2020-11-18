@@ -23,7 +23,6 @@ const Login = (props) => {
   console.log(formData._id)
   function handleSubmit(event) {
     event.preventDefault()
-
     axios.post('/api/login', formData)
       .then(resp => {
         localStorage.setItem('token', resp.data.token)
@@ -47,20 +46,20 @@ const Login = (props) => {
           name="email"
         />
       </div>
-    <div className="field">
-       <label className="label">Password</label>
-      <input className="input" 
-        type="password"
-        onChange={handleChange}
-        value={formData.password}
-        name="password"
-      />
-    </div >
-   
-    <button className="button" type="submit" onClick={handleSubmit}>Log in</button>
-    <Link to="/register" className="discrete">Not registered? Sign up</Link>
-  </form>
-</div>
+      <div className="field">
+        <label className="label">Password</label>
+        <input className="input"
+          type="password"
+          onChange={handleChange}
+          value={formData.password}
+          name="password"
+        />
+      </div >
+
+      <button className="button" type="submit" onClick={handleSubmit}>Log in</button>
+      <Link to="/register" className="discrete">Not registered? Sign up</Link>
+    </form>
+  </div>
 }
 
 export default Login

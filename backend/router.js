@@ -20,7 +20,7 @@ router.route('/profile/:userId')
   // .put(secureRoute, profileController.editProfile)
   .get(profileController.getProfile)
 
-router.route('/profile/editProfile/:userId')
+router.route('/profile/editprofile/:userId')
   .put(secureRoute, profileController.editProfile)
 
 router.route('/profile/:userId/friends')
@@ -38,7 +38,7 @@ router.route('/events')
   .get(eventController.getAllEvents)
 
 router.route('/events/public')
-  .get(secureRoute, eventController.getPublicEvents)
+  .get(eventController.getPublicEvents)
 
 router.route('/events/:userId')
   .get(secureRoute, eventController.getUsersEvents)
