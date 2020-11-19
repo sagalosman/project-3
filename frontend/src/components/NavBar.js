@@ -20,7 +20,7 @@ const NavBar = () => {
     </div>
     <p className="navbar-seperator">|</p>
     <div className="navbar-section">
-      <Link className="navbar-link" to="/add-event">
+      <Link className="navbar-link" to="/events/addevent">
         <div className="navbar-add"></div>
       </Link>
     </div>

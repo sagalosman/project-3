@@ -54,7 +54,7 @@ const Edit = (props) => {
         if (result.event !== 'success') {
           return
         }
-        Axios.put(`/api/profile/${userId}`, { url: result.info.secure_url })
+        axios.put(`/api/profile/${userId}`, { url: result.info.secure_url })
           .then((res) => setImage(res.data))
       }
     ).open()
