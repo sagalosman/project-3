@@ -10,8 +10,10 @@ const ViewProfile = (props) => {
   const friend = '5fb4ea4b7c6faf3ab025ca66'
 
   const [viewProfile, updateViewProfile] = useState({})
+  // const [viewUser, updateViewUser] = useState({})
   const [viewEvents, updateViewEvents] = useState([])
 
+  console.log(viewProfile)
   useEffect(() => {
     axios.get(`/api/profile/${userId}`, {
       headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
@@ -21,6 +23,16 @@ const ViewProfile = (props) => {
         
       })
   }, [])
+  
+  // useEffect(() => {
+  //   axios.get(`/api/user/${userId}`, {
+  //     headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
+  //   })
+  //     .then(resp => {
+  //       updateViewUser(resp.data)
+        
+  //     })
+  // }, [])
 
   useEffect(() => {
     axios.get(`/api/events/users/${userId}`, {

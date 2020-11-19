@@ -385,6 +385,7 @@ svg {
   margin: 3%;
   width: 100vw;
   height: auto;
+  overflow-y: scroll;
 }
 
 .event {
@@ -708,12 +709,13 @@ svg {
   background-color: rgb(220, 200, 255);
   border-radius: 10px;
   border: 5px solid rgb(129, 112, 160);
+  overflow-y: scroll;
 }
 
 .add-event-title {
   font-family: 'Bebas Neue', cursive;
   font-size: 90px;
-  padding: 3%;
+  padding: 3% 3% 0;
 }
 
 .add-event-form {
@@ -746,7 +748,8 @@ svg {
   font-size: 40px;
 }
 
-.add-event-upload {
+.add-event-upload,
+.add-event-submit {
   height: 10%;
   width: 95%;
   margin: 3%;
@@ -758,6 +761,48 @@ svg {
   border: 5px solid rgb(129, 112, 160);
 }
 
+.invite-field {
+  display: flex;
+}
+
+.add-event-invite {
+  width: 30%;
+  margin-right: 3%;
+  padding: 2%;
+  font-family: 'Bebas Neue', cursive;
+  background-color: rgb(237, 227, 255);
+  font-size: 30px;
+  border-radius: 10px;
+  border: 5px solid rgb(129, 112, 160);
+}
+
+.event-invite-name {
+  width: 60%;
+}
+
+.add-event-invited-list {
+  height: 25%;
+  width: 88%;
+  margin: 2% 3%;
+  padding: 3%;
+  font-family: 'Bebas Neue', cursive;
+  background-color: rgb(237, 227, 255);
+  font-size: 30px;
+  border-radius: 10px;
+  border: 5px solid rgb(129, 112, 160);
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.add-event-invited-name {
+  padding: 1%;
+}
+
+.add-event-private {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 
 // Edit Page
