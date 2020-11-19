@@ -27,7 +27,7 @@ const Edit = (props) => {
   useEffect(() => {
     console.log(userId)
     axios.get(`/api/profile/${userId}`, {
-      headers: { Authorization: `Bearer ${localStorage.getItem('token')}`}
+      headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
     })
       .then(resp => {
         updateFormData(resp.data)
