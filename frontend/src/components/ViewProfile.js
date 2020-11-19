@@ -110,7 +110,7 @@ const ViewProfile = (props) => {
                   <img src={e.image} alt="image"/>
             </div>
                 <div className="event-content">
-                  <Link className="event-name">{e.eventName}</Link>
+                  <h3 className="event-name">{e.eventName}</h3>
                   <p className="event-description">{`"${e.description}"`}</p>
                   <p className="event-info"><span>Date: </span>{handleDate(e.date)}</p>
                   <p className="event-info"><span>Location: </span>{e.location}</p>
