@@ -252,15 +252,13 @@ svg {
       color: $primary
     }
   }
-
-  #events {
-    width: 90%;
-
-    div {
-      width: 100%;
-      margin: 10px 0px 0px 5px;
-    }
-  }
+.party-information {
+  display: flex;
+  background-color: rgb(220, 200, 255);
+  width: 90vw;
+  margin: 10px;
+  border-radius: 10px;
+}
 
   
 
