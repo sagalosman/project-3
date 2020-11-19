@@ -22,12 +22,6 @@ const NavBar = () => {
     </div>
     <p className="navbar-seperator">|</p>
     <div className="navbar-section">
-      <Link className="navbar-link" to="/notifications">
-        <div className="navbar-notification"></div>
-      </Link>
-    </div>
-    <p className="navbar-seperator">|</p>
-    <div className="navbar-section">
       <Link className="navbar-link" to="/profile">
         <div className="navbar-profile"></div>
       </Link>
