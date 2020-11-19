@@ -7,6 +7,7 @@ import Banner from './Banner'
 
 const HomePage = (props) => {
   const [events, updateEvents] = useState([])
+  console.log(props)
 
   useEffect(() => {
     axios.get('api/events/public', {
