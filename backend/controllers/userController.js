@@ -52,9 +52,34 @@ function uploadImage(req, res){
     .catch(error => res.send(error))
 }
 
+function getUser(req, res) {
+  User.findOne({_id: req.params.userId })
+    .then(user => {
+      res.send(user)
+    })
+    .catch(err => res.send(err))
+}
+
+function editUser(req, res) {
+  const body = req.body
+  body.user = req.currentUser
+  const userId = req.params.userId
+  User.findOne({_id: userId })
+    .then(user => {
+      user.set(body)
+      return user.save()
+    })
+    .then(user => {
+      res.send(user)
+    })
+    .catch(err => res.send(err))
+}
+
 module.exports = {
   createUser,
   logIn,
   getAllUsers,
-  uploadImage
+  uploadImage,
+  getUser,
+  editUser
 }

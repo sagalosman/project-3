@@ -10,6 +10,7 @@ const ViewProfile = (props) => {
   const userId = props.computedMatch.params.userId
 
   const [viewProfile, updateViewProfile] = useState({})
+  // const [viewUser, updateViewUser] = useState({})
   const [viewEvents, updateViewEvents] = useState([])
   const [friend, updateFriend] = useState('')
 
@@ -17,6 +18,7 @@ const ViewProfile = (props) => {
   const currentUser = getUserId(token)
   
 
+  console.log(viewProfile)
   useEffect(() => {
     axios.get(`/api/profile/${userId}`, {
       headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
@@ -26,6 +28,16 @@ const ViewProfile = (props) => {
         console.log(viewProfile)
       })
   }, [])
+  
+  // useEffect(() => {
+  //   axios.get(`/api/user/${userId}`, {
+  //     headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
+  //   })
+  //     .then(resp => {
+  //       updateViewUser(resp.data)
+        
+  //     })
+  // }, [])
 
   useEffect(() => {
     axios.get(`/api/events/users/${userId}`, {
