@@ -7,7 +7,6 @@ import Banner from './Banner'
 
 const HomePage = (props) => {
   const [events, updateEvents] = useState([])
-  console.log(props)
 
   useEffect(() => {
     axios.get('api/events/public', {
@@ -15,8 +14,6 @@ const HomePage = (props) => {
     })
       .then(resp => updateEvents(resp.data))
   }, [])
-
-  console.log(events)
 
   function handleLike(e) {
     axios.put(`api/events/${e._id}/likes/add`, {}, {
@@ -68,9 +65,7 @@ const HomePage = (props) => {
                   <p className="event-comments"></p> {e.comments.length}
                 </div>
               </div>
-
             </div>
-
           </div>
         })}
       </div>
