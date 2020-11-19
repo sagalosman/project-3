@@ -20,7 +20,7 @@ const App = () => {
       <ProtectedRoute exact path="/profile/users/:userId" component={ViewProfile} />
       <ProtectedRoute exact path="/editprofile/:userId" component={EditProfile}/>
       <Route exact path="/" component={Login} />
-      <ProtectedRoute exact path="/search" component={Search} />
+      <Route exact path="/search" component={Search} />
       <ProtectedRoute exact path="/home" component={HomePage} />
       <ProtectedRoute exact path="/events/addevent" component={AddEvent} />
       <ProtectedRoute exact path="/events/:eventId" component={EventPage} />
