@@ -694,6 +694,72 @@ svg {
   background-size: contain;
 }
 
+// ************** Add Event Page **************
+
+.add-event-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.add-event {
+  height: 97%;
+  width: 95%;
+  background-color: rgb(220, 200, 255);
+  border-radius: 10px;
+  border: 5px solid rgb(129, 112, 160);
+}
+
+.add-event-title {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 90px;
+  padding: 3%;
+}
+
+.add-event-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.add-event-label {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 60px;
+  padding: 3% 3% 1%;
+}
+
+.add-event-input {
+  height: 10%;
+  width: 88%;
+  margin: 0 3%;
+  padding: 3%;
+  font-size: 30px;
+  font-family: 'Bebas Neue', cursive;
+  background-color: rgb(237, 227, 255);
+  border: none;
+  border-bottom: 5px solid rgb(129, 112, 160);
+  border-radius: 10px;
+}
+
+.date {
+  width: 30%;
+  height: 10%;
+  font-size: 40px;
+}
+
+.add-event-upload {
+  height: 10%;
+  width: 95%;
+  margin: 3%;
+  padding: 3%;
+  font-family: 'Bebas Neue', cursive;
+  background-color: rgb(237, 227, 255);
+  font-size: 50px;
+  border-radius: 10px;
+  border: 5px solid rgb(129, 112, 160);
+}
+
+
+
 // Edit Page
 .editSession {
   display:  flex; 
@@ -881,6 +947,11 @@ svg {
   -moz-box-shadow: 0px 0px 5px 5px rgb(182,157,230);
   box-shadow: 0px 0px 5px 5px rgb(182,157,230);
 
+}
+
+.add-event-toggle {
+  margin-left: 3%;
+  height: 50%;
 }
 
 
