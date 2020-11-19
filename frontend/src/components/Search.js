@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-// import NavBar from './NavBar'
+import NavBar from './NavBar'
 import Banner from './Banner'
 import axios from 'axios'
 
@@ -81,10 +81,11 @@ const Searchs = () => {
         value={searchFilter}
       />
        </div>
+       
       
 
 
-      <div className="dropdown">
+      {/* <div className="dropdown">
       <select
         className="select"
         value={selectedName}
@@ -101,9 +102,10 @@ const Searchs = () => {
          </option>
         
       </select>
-    </div>
-   
+    </div> */}
+    
     </>
+    
   
 
 }
@@ -112,6 +114,7 @@ export default Searchs
 
 
 // import React, { useState, useEffect } from 'react'
+// import Banner from './Banner'
 // // import { Link } from 'react-router-dom'
 
 // import axios from 'axios'
@@ -140,10 +143,7 @@ export default Searchs
 //   function getNames() {
 //     const mappedSearchs = searchs.map(search => search.firstname)
 //     console.log(mappedSearchs)
-//     const uniqueSearchs = new Set(mappedSearchs)
 //     return mappedSearchs
-//     console.log(arraySearchs)
-//     return arraySearchs
 //   }
 //   function filteredSearchs() {
 //     const filteredSearchs = searchs.filter(search => {
@@ -152,7 +152,10 @@ export default Searchs
 //     return filteredSearchs
 //   }
 
-//   return <div className="sectionbox">
+//   return <>
+//   <Banner />
+
+//    <div className="sectionbox">
 //     <div className="search-box">
 //       <input
 //         className="input"
@@ -164,16 +167,17 @@ export default Searchs
 //       <div className="buttons">
 //         {getNames().map(users => {
 //           return <button
+//           type='text'
 //             onClick={(event) => updateSelectedName(event.target.innerHTML) }
 //             className="button">
 //             {users}
 //           </button>
 //         })}
 //       </div>
-//      
+     
 //       </div>
 //     </div>
-//   </div>
+//   </>
 // }
 
 // export default Searchs

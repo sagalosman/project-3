@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
+
 const NavBar = () => {
   return <footer className="navbar">
     <div className="navbar-section">
