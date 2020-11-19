@@ -13,7 +13,7 @@ const Search = (props) => {
     axios.get('/api/users', {
       headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
     })
-      .then(resp =>  {
+      .then(resp => {
         updateGetUsers(resp.data)
         console.log(resp.data)
       })
@@ -34,32 +34,32 @@ const Search = (props) => {
 
   if (!getUsers[0]) {
     return <>
-  <Banner />
-  <main className="homepage">
-    <div className="display-area">
-      <h1 className="loading">Loading...</h1>
-    </div>
-  </main>
-  {/* <NavBar /> */}
-</>
-}
+      <Banner />
+      <main className="homepage">
+        <div className="display-area">
+          <h1 className="loading">Loading...</h1>
+        </div>
+      </main>
+      {/* <NavBar /> */}
+    </>
+  }
   return <>
-  <Banner />
-  <main className="homepage">
+    <Banner />
+    <main className="homepage">
       <div className="display-area">
         <div>
           <input type="text" className="input" placeholder="Search for a user"
-          onChange={(event) => updateSearchUsers(event.target.value)}
-          value={searchUsers}
+            onChange={(event) => updateSearchUsers(event.target.value)}
+            value={searchUsers}
           />
         </div>
         {filterUsers().map((user, index) => {
-          {console.log(user)}
+          { console.log(user) }
           return <div key={index} className="event">
             <div className="event-left">
               <img className="event-img" src={user.photo} alt="image" />
             </div>
-            <Link to={`/profile/users/${user._id}`}  className="event-content">
+            <Link to={`/profile/users/${user._id}`} className="event-content">
               <h4 className="event-name">{user.firstname} {user.lastname}</h4>
             </Link>
           </div>

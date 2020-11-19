@@ -22,7 +22,7 @@ const eventsSchema = new mongoose.Schema({
   creator: { type: mongoose.Schema.ObjectId, ref: 'User', required: true },
   hosts: [{ type: mongoose.Schema.ObjectId, ref: 'User', required: true }],
   notAttending: [{ type: mongoose.Schema.ObjectId, ref: 'User', required: true }],
-  date: { type: Date, required: true }
+  date: { type: String, required: true }
 },
   {
     timestamps: true
