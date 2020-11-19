@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import NavBar from './NavBar'
+// import NavBar from './NavBar'
 import Banner from './Banner'
 import axios from 'axios'
 
@@ -26,13 +26,14 @@ const Searchs = () => {
   }, [])
 
 
-  function getNames() {
-    const mappedSearchs = searchs.map(search => search.firstname)
-    console.log(mappedSearchs)
-   
-    return mappedSearchs
+  // function getNames() {
+  //   const mappedSearchs = searchs.map(search => search.firstname)
+  //   console.log(mappedSearchs)
+  //   const uniqueSearchs = new Set(mappedSearchs)
+  //   const arraySearchs = Array.from(uniqueSearchs)
+  //   return mappedSearchs
     
-  }
+  // }
 
   function filteredSearchs() {
     const filteredSearchs = searchs.filter(search => {
@@ -41,20 +42,34 @@ const Searchs = () => {
     return filteredSearchs
   }
 
-  <div className="buttons">
-        {getNames().map(name => {
-          return <button
-            onClick={(event) => updateSelectedName(event.target.innerHTML) }
-            className="button"
-          >
-            {name}
-          </button>
-        })}
-      </div>
+  // <div className="buttons">
+  //       {getNames().map(name => {
+  //         return <button
+  //           onClick={(event) => updateSelectedName(event.target.innerHTML) }
+  //           className="button"
+  //         >
+  //           {name}
+  //         </button>
+  //       })}
+  //     </div>
 
   return <>
   <Banner />
-  <div className="search__container">
+  <div className="columns">
+        {filteredSearchs().map((search, index) => {
+          console.log(searchs)
+          return <div
+            className="column2"
+            key={index}
+          >
+            {/* <p className="subtitle is-4">
+                      {search.firstname}
+                    </p> */}
+          </div>
+        })}
+      </div>
+      
+   <div className="search__container">
     <p className="search__title">
         Go ahead, hover over search
     </p>
@@ -65,6 +80,7 @@ const Searchs = () => {
         onChange={(event) => updateSearchFilter(event.target.value)}
         value={searchFilter}
       />
+       </div>
       
 
 
@@ -86,25 +102,11 @@ const Searchs = () => {
         
       </select>
     </div>
-      <div className="columns">
-        {filteredSearchs().map((search, index) => {
-          console.log(searchs)
-          return <div
-            className="column2"
-            key={index}
-          >
-            {/* <p className="subtitle is-4">
-                      {search.firstname}
-                    </p> */}
-          </div>
-        })}
-      </div >
-    </div>
-    
-<NavBar />
-   </>
+   
+    </>
+  
 
-      }
+}
 
 export default Searchs
 
