@@ -8,7 +8,7 @@ const Login = (props) => {
     email: '',
     password: ''
   })
-
+  console.log(props)
   function handleChange(event) {
     const name = event.target.name
     const value = event.target.value
@@ -19,8 +19,6 @@ const Login = (props) => {
     }
     updateFormData(data)
   }
-
-  console.log(formData._id)
   function handleSubmit(event) {
     event.preventDefault()
     axios.post('/api/login', formData)

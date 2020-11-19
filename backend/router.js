@@ -14,10 +14,15 @@ router.route('/register')
 router.route('/users')
   .get(secureRoute, userController.getAllUsers)
 
-router.route('/profile/:userId')
+router.route('/user/:userId')
+  .get(secureRoute, userController.getUser)
+
+router.route('/user/edituser/:userId')
+  .put(secureRoute, userController.editUser)
   .put(secureRoute, userController.uploadImage)
+
+router.route('/profile/:userId')
   .post(secureRoute, profileController.setProfile)
-  // .put(secureRoute, profileController.editProfile)
   .get(secureRoute, profileController.getProfile)
 
 router.route('/profile/editprofile/:userId')
