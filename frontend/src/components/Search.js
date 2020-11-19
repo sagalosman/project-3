@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-// import NavBar from './NavBar'
+import NavBar from './NavBar'
+import Banner from './Banner'
 import axios from 'axios'
 
 const Searchs = () => {
@@ -28,8 +29,7 @@ const Searchs = () => {
   function getNames() {
     const mappedSearchs = searchs.map(search => search.firstname)
     console.log(mappedSearchs)
-    const uniqueSearchs = new Set(mappedSearchs)
-    const arraySearchs = Array.from(uniqueSearchs)
+   
     return mappedSearchs
     
   }
@@ -52,7 +52,9 @@ const Searchs = () => {
         })}
       </div>
 
-  return <div className="search__container">
+  return <>
+  <Banner />
+  <div className="search__container">
     <p className="search__title">
         Go ahead, hover over search
     </p>
@@ -96,11 +98,13 @@ const Searchs = () => {
                     </p> */}
           </div>
         })}
-      </div>
+      </div >
     </div>
-  
+    
+<NavBar />
+   </>
 
-}
+      }
 
 export default Searchs
 
