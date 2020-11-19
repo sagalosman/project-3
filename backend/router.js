@@ -18,7 +18,7 @@ router.route('/profile/:userId')
   .put(secureRoute, userController.uploadImage)
   .post(secureRoute, profileController.setProfile)
   // .put(secureRoute, profileController.editProfile)
-  .get(profileController.getProfile)
+  .get(secureRoute, profileController.getProfile)
 
 router.route('/profile/editprofile/:userId')
   .put(secureRoute, profileController.editProfile)
