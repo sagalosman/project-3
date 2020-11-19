@@ -6,8 +6,9 @@ import Navbar from './Navbar'
 import Banner from './Banner'
 
 const Edit = (props) => {
+  console.log(props.history)
   console.log(props)
-  const userId = props.match.params.userId
+  const userId = props.computedMatch.params.userId
   const [image, setImage] = useState('')
   // const [api, updateApi] = useState([])
   const [formData, updateFormData] = useState({
@@ -24,6 +25,7 @@ const Edit = (props) => {
   })
 
   useEffect(() => {
+    console.log(userId)
     axios.get(`/api/profile/${userId}`, {
       headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
     })
