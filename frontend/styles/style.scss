@@ -4,8 +4,8 @@
 
 * {
   font-family: -apple-system, BlinkMacSystemFont, "San Francisco", Helvetica, Arial, sans-serif;
-font-weight:  300;
-margin:  0;
+  font-weight:  300;
+  margin:  0;
 }
 body {
   height: 100vh;
@@ -379,6 +379,7 @@ svg {
 .homepage {
   display: flex;
   justify-content: center;
+  width: 100vw;
 }
 
 .display-area {
@@ -390,7 +391,7 @@ svg {
 
 .event {
   border-radius: 10px;
-  width: 100%;
+  width: 99%;
   height: 20%;
   background-color: rgb(220, 200, 255);
   margin-bottom: 2%;

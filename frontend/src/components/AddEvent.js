@@ -3,7 +3,7 @@ import Banner from './Banner'
 import NavBar from './NavBar'
 import axios from 'axios'
 import Toggle from 'react-toggle'
-import { useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom"
 
 const AddEvent = (props) => {
   const [users, updateUsers] = useState([])
