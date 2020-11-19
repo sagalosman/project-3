@@ -958,67 +958,278 @@ svg {
 
 
 
-// SEARCH------------>
+//************ SEARCH PAGE ****************//
 
-// * {
-//     width: 430px;
-//     margin: 0 auto;
-//     background-color: #F7CAC9;
-//     font-family: 'Raleway', sans-serif;
-// }
+.event-name {
+  color: black;
 
-
-.search {
-    &__container {
-        padding-top: 70px;
-    }
-    
-    &__title {
-        font-size: 22px;
-        font-weight: 900;
-        text-align: center;
-        color: #ff8b88;
-    }
-    
-    &__input {
-        width: 100%;
-        padding: 12px 24px;
-
-        background-color: transparent;
-        transition: transform 250ms ease-in-out;
-        font-size: 14px;
-        line-height: 18px;
-        
-        color: #575756;
-        background-color: transparent;
-
- 
-      background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath d='M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z'/%3E%3Cpath d='M0 0h24v24H0z' fill='none'/%3E%3C/svg%3E");
-        background-repeat: no-repeat;
-        background-size: 18px 18px;
-        background-position: 95% center;
-        border-radius: 50px;
-        border: 1px solid #575756;
-        transition: all 250ms ease-in-out;
-        backface-visibility: hidden;
-        transform-style: preserve-3d;
-        
-        &::placeholder {
-            color: color(#575756 a(0.8));
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-        }
-        
-        &:hover,
-        &:focus {
-            padding: 12px 0;
-            outline: 0;
-            border: 1px solid transparent;
-            border-bottom: 1px solid #575756;
-            border-radius: 0;
-            background-position: 100% center;
-        }
-    }
 }
 
+// @import url('https://fonts.googleapis.com/css?family=Krub:400,700');
 
+// * {
+//   margin: 0;
+//   padding: 0;
+//   box-sizing: border-box;
+// }
+
+// html, body {
+//   width: 100%;
+//   height: 100%;
+// }
+
+// body {
+//   background: #202020;
+//   font-family: 'Krub', sans-serif;
+// }
+
+// .card {
+//   position: absolute;
+//   margin: auto;
+//   top: 0;
+//   right: 0;
+//   bottom: 0;
+//   left: 0;
+//   width: 250px;
+//   height: 400px;
+//   border-radius: 10px;
+//   box-shadow: 0 10px 25px 5px rgba(0, 0, 0, 0.2);
+//   background: #151515;
+//   overflow: hidden;
+//   .ds-top {
+//     position: absolute;
+//     margin: auto;
+//     top: 0;
+//     right: 0;
+//     left: 0;
+//     width: 300px;
+//     height: 80px;
+//     background: crimson;
+//     animation: dsTop 1.5s;
+//   }
+//   .avatar-holder {
+//     position: absolute;
+//     margin: auto;
+//     top: 40px;
+//     right: 0;
+//     left: 0;
+//     width: 100px;
+//     height: 100px;
+//     border-radius: 50%;
+//     box-shadow: 0 0 0 5px #151515,
+//                 inset 0 0 0 5px #000000,
+//                 inset 0 0 0 5px #000000,
+//                 inset 0 0 0 5px #000000,
+//                 inset 0 0 0 5px #000000,;
+//     background: white;
+//     overflow: hidden;
+//     animation: mvTop 1.5s;
+//     img {
+//       width: 100%;
+//       height: 100%;
+//       object-fit: cover;
+//     }
+//   }
+//   .name {
+//     position: absolute;
+//     margin: auto;
+//     top: -60px;
+//     right: 0;
+//     bottom: 0;
+//     left: 0;
+//     width: inherit;
+//     height: 40px;
+//     text-align: center;
+//     animation: fadeIn 2s ease-in;
+//     a {
+//       color: white;
+//       text-decoration: none;
+//       font-weight: 700;
+//       font-size: 18px;
+//         &:hover {
+//           text-decoration: underline;
+//           color: crimson;
+//       }
+//     }
+//     h6 {
+//       position: absolute;
+//       margin: auto;
+//       left: 0;
+//       right: 0;
+//       bottom: 0;
+//       color: white;
+//       width: 40px;
+//     }
+//   }
+//   .button {
+//     position: absolute;
+//     margin: auto;
+//     padding: 8px;
+//     top: 20px;
+//     right: 0;
+//     bottom: 0;
+//     left: 0;
+//     width: inherit;
+//     height: 40px;
+//     text-align: center;
+//     animation: fadeIn 2s ease-in;
+//     outline: none;
+//     a {
+//       padding: 5px 20px;
+//       border-radius: 10px;
+//       color: white;
+//       letter-spacing: 0.05em;
+//       text-decoration: none;
+//       font-size: 10px;
+//       transition: all 1s;
+//       &:hover {
+//         color: white;
+//         background: crimson;
+//       }
+//     }
+//   }
+//   .ds-info {
+//     position: absolute;
+//     margin: auto;
+//     top: 120px;
+//     bottom: 0;
+//     right: 0;
+//     left: 0;
+//     width: inherit;
+//     height: 40px;
+//     display: flex;
+//     .pens, .projects, .posts {
+//       position: relative;
+//       left: -300px;
+//       width: calc(250px / 3);
+//       text-align: center;
+//       color: white;
+//       animation: fadeInMove 2s;
+//       animation-fill-mode: forwards;
+//       h6 {
+//         text-transform: uppercase;
+//         color: crimson;
+//       }
+//       p {
+//         font-size: 12px;
+//       }
+//     }
+//     .ds {
+//       &:nth-of-type(2) {
+//         animation-delay: .5s;
+//       }
+//       &:nth-of-type(1) {
+//         animation-delay: 1s;
+//       }
+//     }
+//   }
+//   .ds-skill {
+//     position: absolute;
+//     margin: auto;
+//     bottom: 10px;
+//     right: 0;
+//     left: 0;
+//     width: 200px;
+//     height: 100px;
+//     animation: mvBottom 1.5s;
+//     h6 {
+//       margin-bottom: 5px;
+//       font-weight: 700;
+//       text-transform: uppercase;
+//       color: crimson;
+//     }
+//     .skill {
+//       h6 {
+//         font-weight: 400;
+//         font-size: 8px;
+//         letter-spacing: 0.05em;
+//         margin: 4px 0;
+//         color: white;
+//       }
+//       .fab {
+//         color: crimson;
+//         font-size: 14px;
+//       }
+//       .bar {
+//         height: 5px;
+//         background: crimson;
+//         text-align: right;
+//         p {
+//           color: white;
+//           font-size: 8px;
+//           padding-top: 5px;
+//           animation: fadeIn 5s;
+//         }
+//         &:hover {
+//           background: white;
+//         }
+//       }
+//       .bar-html {
+//         width: 95%;
+//         animation: htmlSkill 1s;
+//         animation-delay: .4s;
+//       }
+//       .bar-css {
+//         width: 90%;
+//         animation: cssSkill 2s;
+//         animation-delay: .4s;
+//       }
+//       .bar-js {
+//         width: 75%;
+//         animation: jsSkill 3s;
+//         animation-delay: .4s;
+//       }
+//     }
+//   }
+// }
+
+// @keyframes fadeInMove {
+//   0% {
+//     opacity: 0;
+//     left: -300px;
+//   }
+//   100% {
+//     opacity: 1;
+//     left: 0;
+//   }
+// }
+
+// @keyframes fadeIn {
+//   0% {opacity: 0;}
+//   100% {opacity: 1;}
+// }
+
+// @keyframes htmlSkill {
+//   0% {width: 0;}
+//   100% {width: 95%;}
+// }
+
+// @keyframes cssSkill {
+//   0% {width: 0;}
+//   100% {width: 90%;}
+// }
+
+// @keyframes jsSkill {
+//   0% {width: 0;}
+//   100% {width: 75%;}
+// }
+
+// @keyframes mvBottom {
+//   0% {bottom: -150px;}
+//   100% {bottom: 10px;}
+// }
+
+// @keyframes mvTop {
+//   0% {top: -150px;}
+//   100% {top: 40px;}
+// }
+
+// @keyframes dsTop {
+//   0% {top: -150px;}
+//   100% {top: 0;}
+// }
+
+// .following {
+//   color: white;
+//   background: crimson;
+// }
