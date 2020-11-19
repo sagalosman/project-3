@@ -4,13 +4,18 @@ import { Link } from 'react-router-dom'
 import Banner from './Banner'
 import NavBar from './NavBar'
 import { handleDate } from '../lib/DateFormat'
+import { getUserId } from '../lib/UserToken'
 
 const ViewProfile = (props) => {
   const userId = props.computedMatch.params.userId
-  const friend = '5fb4ea4b7c6faf3ab025ca66'
 
   const [viewProfile, updateViewProfile] = useState({})
   const [viewEvents, updateViewEvents] = useState([])
+  const [friend, updateFriend] = useState('')
+
+  const token = localStorage.getItem('token')
+  const currentUser = getUserId(token)
+  
 
   useEffect(() => {
     axios.get(`/api/profile/${userId}`, {
@@ -18,37 +23,38 @@ const ViewProfile = (props) => {
     })
       .then(resp => {
         updateViewProfile(resp.data)
-        
+        console.log(viewProfile)
       })
   }, [])
 
   useEffect(() => {
     axios.get(`/api/events/users/${userId}`, {
-      headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
+      headers: { Authorization: `Bearer ${token}` }
     })
       .then(resp => {
-        console.log(resp.data)
         updateViewEvents(resp.data)
       })
   }, [])
 
-  const addFriend = (event) => {
-    event.preventDefault()
-    console.log('hello')
-    axios.put(`/api/profile/${viewProfile.user._id}/friends`), {
-      headers: { Authorization: `Bearer ${localStorage.getItem('token')}`}
-    }
-      .then(resp => {
-        console.log(resp)
-     })
+ function addFriend() {
+  event.preventDefault()
+
+    axios.put(`/api/profile/${userId}/friends`, { 
+      firstname: viewProfile.user.firstname,
+      lastname: viewProfile.user.lastname,
+      username: viewProfile.user.username,
+      _id: '5fb4ea4b7c6faf3ab025ca67'})
+    .then (resp => {
+      updateViewProfile(resp.data)
+    })
   }
 
   const addTopFriend = (event) => {
     event.preventDefault()
-    event.value = 'selected'
+
     axios.put(`/api/profile/${viewProfile.user._id}/top-friends`, {},)
       .then(resp => {
-        resp.history.push()
+        updateViewProfile(resp.data)
       })
   }
 
@@ -65,6 +71,7 @@ const ViewProfile = (props) => {
 }
 
     return <>
+    {console.log(viewProfile)}
       <Banner />
       <main>
         <section className="flex-container">
@@ -92,8 +99,8 @@ const ViewProfile = (props) => {
             <h3>{viewProfile.bio}</h3>
           </div>
           <div id="add-friend">
-            <button onClick={addFriend}>Friend</button>
-            <button onClick={addTopFriend}>Top Friend</button>
+            {currentUser !== userId && <button onClick={addFriend}>Friend</button>}
+            {currentUser !== userId && <button onClick={addTopFriend}>Top Friend</button>}
           </div>
           <div className="flex-container">
             {viewEvents.map((e, i) => {

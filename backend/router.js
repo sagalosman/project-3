@@ -24,7 +24,7 @@ router.route('/profile/editprofile/:userId')
   .put(secureRoute, profileController.editProfile)
 
 router.route('/profile/:userId/friends')
-  .put(secureRoute, profileController.addFriend)
+  .put(profileController.addFriend)
   .delete(secureRoute, profileController.removeFriend)
 
 router.route('/profile/:userId/top-friends')
