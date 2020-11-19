@@ -16,7 +16,7 @@ const App = () => {
   return <BrowserRouter>
     <Switch>
       <Route exact path="/register" component={Register} />
-      <ProtectedRoute exact path="/profile/:userId" component={ViewProfile} />
+      <ProtectedRoute exact path="/profile/users/:userId" component={ViewProfile} />
       <ProtectedRoute exact path="/profile" component={Profile} />
 <<<<<<< HEAD
       {/* <ProtectedRoute exact path="/EditProfile" component={EditProfile}/> */}
