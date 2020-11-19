@@ -7,6 +7,7 @@ import { handleDate } from '../lib/DateFormat'
 
 const ViewProfile = (props) => {
   const userId = props.computedMatch.params.userId
+  const friend = '5fb4ea4b7c6faf3ab025ca66'
 
   const [viewProfile, updateViewProfile] = useState({})
   const [viewEvents, updateViewEvents] = useState([])
@@ -17,7 +18,7 @@ const ViewProfile = (props) => {
     })
       .then(resp => {
         updateViewProfile(resp.data)
-        console.log(resp.data)
+        
       })
   }, [])
 
@@ -26,17 +27,20 @@ const ViewProfile = (props) => {
       headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
     })
       .then(resp => {
+        console.log(resp.data)
         updateViewEvents(resp.data)
       })
   }, [])
 
   const addFriend = (event) => {
     event.preventDefault()
-    event.value = 'selected'
-    axios.put(`/api/profile/${friend}/friends`)
+    console.log('hello')
+    axios.put(`/api/profile/${viewProfile.user._id}/friends`), {
+      headers: { Authorization: `Bearer ${localStorage.getItem('token')}`}
+    }
       .then(resp => {
-        resp.history.push()
-      })
+        console.log(resp)
+     })
   }
 
   const addTopFriend = (event) => {
@@ -70,18 +74,6 @@ const ViewProfile = (props) => {
             </div>
             <div className="flex-column flex-1">
               <div id="first-row" className="flex-row">
-                {/* <div className="flex-column">
-              <h2>{viewProfile.events.length}</h2>
-              <h3>Events</h3>
-            </div> */}
-                {/* <div className="flex-column">
-              <h2>{viewProfile.recentEvents.length}</h2>
-              <h3>Recent</h3>
-            </div> */}
-                {/* <div className="flex-column">
-              <h4>{viewProfile.taggedEvents.length}</h4>
-              <h3>Tagged</h3>
-            </div> */}
               </div>
               <div id="second-row" className="flex-row">
                 <div className="flex-column">
@@ -100,17 +92,17 @@ const ViewProfile = (props) => {
             <h3>{viewProfile.bio}</h3>
           </div>
           <div id="add-friend">
-            <button>Friend</button>
+            <button onClick={addFriend}>Friend</button>
             <button onClick={addTopFriend}>Top Friend</button>
           </div>
-          <div className="display-area">
+          <div className="flex-container">
             {viewEvents.map((e, i) => {
-              return <div key={i} className="event">
+              return <div key={i} className="flex-row party-information">
                 <div className="event-img">
                   <img src={e.image} alt="image"/>
-            </div>
+                </div>
                 <div className="event-content">
-                  <Link className="event-name">{e.eventName}</Link>
+                  <Link to={`/events/${e._id}`} className="event-name">{e.eventName}</Link>
                   <p className="event-description">{`"${e.description}"`}</p>
                   <p className="event-info"><span>Date: </span>{handleDate(e.date)}</p>
                   <p className="event-info"><span>Location: </span>{e.location}</p>

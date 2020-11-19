@@ -10,12 +10,14 @@ import ProtectedRoute from './src/components/ProtectedRoute'
 import ViewProfile from './src/components/ViewProfile'
 import HomePage from './src/components/HomePage'
 import EditProfile from './src/components/EditProfile'
+import ViewEvent from './src/components/ViewEvent.js'
 
 const App = () => {
   return <BrowserRouter>
     <Switch>
       <Route exact path="/register" component={Register} />
       <ProtectedRoute exact path="/profile/users/:userId" component={ViewProfile} />
+      <ProtectedRoute exact path= "/events/:eventId" component= {ViewEvent} />
       <ProtectedRoute exact path="/profile" component={Profile} />
       <ProtectedRoute exact path="/EditProfile" component={EditProfile}/>
       <Route exact path="/" component={Login} />
