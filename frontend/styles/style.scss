@@ -495,7 +495,8 @@ svg {
 }
 
 .one-event-content,
-.one-event-comments {
+.one-event-comments,
+.one-event-attendance {
   height: 60%;
   width: 90%;
   background-color: rgb(220, 200, 255);
@@ -504,8 +505,15 @@ svg {
   margin: 2%;
 }
 
-.one-event-comments {
+.one-event-comments,
+.one-event-attendance {
   height: 32%;
+}
+
+.one-event-attendance {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
 }
 
 .one-event-img {
@@ -541,6 +549,7 @@ svg {
   align-items: center;
   flex-direction: column;
   text-align: center;
+  background-color: rgb(237, 227, 255);
 }
 
 .one-event-numbers {
@@ -550,7 +559,7 @@ svg {
 
 .comments-list {
   height: 58%;
-  // border: 5px solid rgb(129, 112, 160);
+  border: 5px solid rgb(129, 112, 160);
   border-radius: 10px;
   margin: 2%;
   overflow-y: scroll;
@@ -614,6 +623,140 @@ svg {
   font-size: 30px;
 }
 
+.attendance-list {
+  height: 93%;
+  border: 5px solid rgb(129, 112, 160);
+  width: 33%;
+  margin: 1%;
+  border-radius: 10px;
+  background-color: rgb(237, 227, 255);
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+}
+
+.attendance-title {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 50px;
+  padding: 3%;
+}
+
+.attendance-name {
+  text-decoration: none;
+  color: black;
+  font-size: 30px;
+  padding: 3%;
+}
+
+.icon-bigger {
+  height: 80px;
+  width: 80px;
+  background-size: cover;
+}
+
+.big-num {
+  width: 100px;
+}
+
+.info-big span {
+  font-size: 40px;
+}
+
+.info-big {
+  font-size: 35px;
+}
+
+.one-attendance-top {
+  height: 100%;
+  display: flex;
+  width: 100%;
+}
+
+.one-attendance-bottom {
+  height: 20%;
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.attend {
+  height: 75px;
+  width: 75px;
+  background: url('../src/img/confetti-icon.png');
+  background-size: contain;
+}
+
+.not-attend {
+  height: 75px;
+  width: 75px;
+  background: url('../src/img/sad-icon.png');
+  background-size: contain;
+}
+
+// ************** Add Event Page **************
+
+.add-event-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.add-event {
+  height: 97%;
+  width: 95%;
+  background-color: rgb(220, 200, 255);
+  border-radius: 10px;
+  border: 5px solid rgb(129, 112, 160);
+}
+
+.add-event-title {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 90px;
+  padding: 3%;
+}
+
+.add-event-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.add-event-label {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 60px;
+  padding: 3% 3% 1%;
+}
+
+.add-event-input {
+  height: 10%;
+  width: 88%;
+  margin: 0 3%;
+  padding: 3%;
+  font-size: 30px;
+  font-family: 'Bebas Neue', cursive;
+  background-color: rgb(237, 227, 255);
+  border: none;
+  border-bottom: 5px solid rgb(129, 112, 160);
+  border-radius: 10px;
+}
+
+.date {
+  width: 30%;
+  height: 10%;
+  font-size: 40px;
+}
+
+.add-event-upload {
+  height: 10%;
+  width: 95%;
+  margin: 3%;
+  padding: 3%;
+  font-family: 'Bebas Neue', cursive;
+  background-color: rgb(237, 227, 255);
+  font-size: 50px;
+  border-radius: 10px;
+  border: 5px solid rgb(129, 112, 160);
+}
 
 
 
@@ -803,4 +946,79 @@ svg {
   -webkit-box-shadow: 0px 0px 5px 5px rgb(182,157,230);
   -moz-box-shadow: 0px 0px 5px 5px rgb(182,157,230);
   box-shadow: 0px 0px 5px 5px rgb(182,157,230);
+
 }
+
+.add-event-toggle {
+  margin-left: 3%;
+  height: 50%;
+}
+
+
+
+
+
+// SEARCH------------>
+
+// * {
+//     width: 430px;
+//     margin: 0 auto;
+//     background-color: #F7CAC9;
+//     font-family: 'Raleway', sans-serif;
+// }
+
+
+.search {
+    &__container {
+        padding-top: 70px;
+    }
+    
+    &__title {
+        font-size: 22px;
+        font-weight: 900;
+        text-align: center;
+        color: #ff8b88;
+    }
+    
+    &__input {
+        width: 100%;
+        padding: 12px 24px;
+
+        background-color: transparent;
+        transition: transform 250ms ease-in-out;
+        font-size: 14px;
+        line-height: 18px;
+        
+        color: #575756;
+        background-color: transparent;
+
+ 
+      background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath d='M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z'/%3E%3Cpath d='M0 0h24v24H0z' fill='none'/%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-size: 18px 18px;
+        background-position: 95% center;
+        border-radius: 50px;
+        border: 1px solid #575756;
+        transition: all 250ms ease-in-out;
+        backface-visibility: hidden;
+        transform-style: preserve-3d;
+        
+        &::placeholder {
+            color: color(#575756 a(0.8));
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+        
+        &:hover,
+        &:focus {
+            padding: 12px 0;
+            outline: 0;
+            border: 1px solid transparent;
+            border-bottom: 1px solid #575756;
+            border-radius: 0;
+            background-position: 100% center;
+        }
+    }
+}
+
+

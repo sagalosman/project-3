@@ -69,7 +69,11 @@ const Edit = (props) => {
         if (result.event !== 'success') {
           return
         }
+<<<<<<< HEAD
         Axios.put(`/api/user/edituser/${userId}`, { url: result.info.secure_url })
+=======
+        axios.put(`/api/profile/${userId}`, { url: result.info.secure_url })
+>>>>>>> development
           .then((res) => setImage(res.data))
       }
     ).open()

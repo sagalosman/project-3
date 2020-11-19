@@ -9,7 +9,9 @@ import ProtectedRoute from './src/components/ProtectedRoute'
 import ViewProfile from './src/components/ViewProfile'
 import HomePage from './src/components/HomePage'
 import EditProfile from './src/components/EditProfile'
+import Search from './src/components/Search'
 import EventPage from './src/components/EventPage'
+import AddEvent from './src/components/AddEvent'
 
 const App = () => {
   return <BrowserRouter>
@@ -18,8 +20,11 @@ const App = () => {
       <ProtectedRoute exact path="/profile/users/:userId" component={ViewProfile} />
       <ProtectedRoute exact path="/editprofile/:userId" component={EditProfile}/>
       <Route exact path="/" component={Login} />
+      <Route exact path="/search" component={Search} />
       <ProtectedRoute exact path="/home" component={HomePage} />
+      <ProtectedRoute exact path="/events/addevent" component={AddEvent} />
       <ProtectedRoute exact path="/events/:eventId" component={EventPage} />
+      
     </Switch>
   </BrowserRouter>
 }
