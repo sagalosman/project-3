@@ -7,6 +7,9 @@ import Banner from './Banner'
 
 const HomePage = (props) => {
   const [events, updateEvents] = useState([])
+  const token = localStorage.getItem('token')
+  const parsedToken = JSON.parse(atob(token.split('.')[1]))
+  const Id = parsedToken.sub
 
   useEffect(() => {
     axios.get('api/events/public', {

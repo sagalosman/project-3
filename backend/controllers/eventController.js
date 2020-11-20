@@ -197,7 +197,6 @@ function getMyEvents(req, res) {
 function getUsersEvents(req, res) {
   const userId = req.params.userId
   const currentUser = req.currentUser._id.toString()
-  console.log(req.currentUser._id)
 
   Events
     .find()
@@ -207,6 +206,8 @@ function getUsersEvents(req, res) {
       for (let i = 0; i < events.length; i++) {
         let permissions = false
         let creatorFilter = false
+
+        console.log(events[i].creator._id.toString() === currentUser)
         if (events[i].creator._id.toString() === userId) {
           creatorFilter = true
         } else if (events[i].creator._id.toString() === currentUser) {
