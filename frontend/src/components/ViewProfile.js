@@ -100,12 +100,6 @@ function removeFriend() {
     })
 }
 
- function addTopFriend() {
-    event.preventDefault()
-
-  }
-
-
   if (!viewProfile.user) {
     return <>
   {/* <Banner /> */}
@@ -119,15 +113,13 @@ function removeFriend() {
 }
     return <>
       <Banner />
-      <main>
-        <section className="flex-container">
+      <main className="homepage">
+        <section className="display-area">
           <div className="profile-header">
             <div className="flex-column flex-1">
-              {/* <img className="profile-image" src={viewProfile.user.image} alt={viewProfile.user.firstname} /> */}
+              <img className="profile-image" src={viewProfile.user.image} alt={viewProfile.user.firstname} />
             </div>
             <div className="flex-column flex-1">
-              <div id="first-row" className="flex-row">
-              </div>
               <div id="second-row" className="flex-row">
                 <div className="flex-column">
                   <h2>{viewProfile.friends.length}</h2>
@@ -137,6 +129,9 @@ function removeFriend() {
                   <h2>{viewProfile.topFriends.length}</h2>
                   <h3>Top Friends</h3>
                 </div>
+                {currentUser === userId && <Link to={`/editprofile/${currentUser}`}>
+                  <div className="settings-wheel"></div>
+                  </Link>}
               </div>
             </div>
           </div>
@@ -146,13 +141,12 @@ function removeFriend() {
           </div>
           <div id="add-friend">
             {currentUser !== userId && <button className={friend} onClick={addFriend}>Friend</button>}
-            {currentUser !== userId && <button onClick={addTopFriend}>Top Friend</button>}
           </div>
           <div>
             {viewEvents.map((e, i) => {
               return <div key={i}>
                 <div className="event-img">
-                  {/* <img src={e.image} alt="image"/> */}
+                  <img src={e.image} alt="image"/>
                 </div>
                 <div className="event-content">
                   <Link to={`/events/${e._id}`} className="event-name">{e.eventName}</Link>

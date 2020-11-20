@@ -176,6 +176,14 @@ svg {
 }
 
 //************** View Profile ***************
+
+.settings-wheel {
+  background-image: url('../src/img/setting-gear.png');
+  background-size: contain;
+  height: 30px;
+  width: 30px;
+}
+
 .flex-container {
   display: flex; 
   // background: $primary;
@@ -251,10 +259,6 @@ svg {
   margin: 10px;
   border-radius: 10px;
 }
-
-  
-
-
 
   h4 {
     padding-bottom: 10px;
