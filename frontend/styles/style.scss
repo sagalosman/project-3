@@ -17,15 +17,7 @@ main {
   background-color: rgb(248, 248, 248);
 }
 $primary: rgb(182,157,230);
-// html, body {
-// height:  100vh;
-// width:  100vw;
-// margin:  0 0;
-// display:  flex;
-// align-items:  flex-start;
-// justify-content:  flex-start;
-// background:  #F3F2F2;
-// }
+
 .title {
 font-size:  24px;
 font-weight:  600;
@@ -186,29 +178,74 @@ svg {
 
 .flex-container {
   display: flex; 
-  // background: $primary;
   flex-direction: column;
   width: 100vw;
   height: 100vh;
   align-items: center;
   color: black;
   text-align: start;
+}
 
-  .flex-column {
-    display: flex;
-    flex-direction: column;
-    align-content: center;
-    text-align: center;
-  }
-  .flex-row {
-    display: flex;
-    flex-direction: row;
-    align-content: center;
-    justify-content: center;
-  }
+.profile {
+  border-radius: 10px;
+  width: 98%;
+  height: 90%;
+  background-color: rgb(225, 205, 260);
+  margin-bottom: 2%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border: 4px solid rgb(129, 112, 160);
+}
+
+// .profile-image {
+//   border-radius: 10px;
+//   height: 300px;
+//   width: 300px;
+// }
+
+// .info {
+//   display: flex;
+//   flex-direction: column;
+// }
+
+// .friends {
+//   display: flex;
+//   flex-direction: row;
+// }
+// .info {
+//   text-align: left;
+//   width: 90%;
+//   margin: 20px 0px 0px 20px;
+
+//   h6 {
+//     margin-bottom: 5px;
+//   }
+// }
+
+// .image {
+//   width: 40%;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+// }
+
+  // .flex-column {
+  //   display: flex;
+  //   flex-direction: column;
+  //   align-content: center;
+  //   text-align: center;
+  // }
+  // .flex-row {
+  //   display: flex;
+  //   flex-direction: row;
+  //   align-content: center;
+  //   justify-content: center;
+  // }
   
   .profile-header > div {
     display: flex;
+    flex-direction: row;
     align-content: center;
     justify-content: center;
     width: auto auto;
@@ -217,73 +254,67 @@ svg {
   
   .profile-header {
     display: flex;
+    flex-direction: row;
     justify-content: center;
     align-content: center;
     margin-top: 30px;
     width: 90%;
     height: 100px;
-
-    #first-row > div {
-      width: 33%;
-      margin: 10px;
-    }
-    #second-row > div {
-      width: 33%;
-    }
   }
 
-  #bio {
-    text-align: left;
-    width: 90%;
-    margin: 20px 0px 0px 20px;
+    // #first-row > div {
+    //   width: 33%;
+    //   margin: 10px;
+    // }
+    // #second-row > div {
+    //   width: 33%;
+    // }
+  
 
-    h6 {
-      margin-bottom: 5px;
-    }
-  }
+  
 
   .friend {
     color: white;
     background: green;
   }
 
-  #add-friend {
-  margin-top: 15px;
-  width: 90%;
-  }
+//   #add-friend {
+//   margin-top: 15px;
+//   width: 90%;
+//   }
   
-.party-information {
-  display: flex;
-  background-color: rgb(220, 200, 255);
-  width: 90vw;
-  margin: 10px;
-  border-radius: 10px;
-}
+// .party-information {
+//   display: flex;
+//   background-color: rgb(220, 200, 255);
+//   width: 90vw;
+//   margin: 10px;
+//   border-radius: 10px;
+// }
 
-  h4 {
-    padding-bottom: 10px;
-  }
+//   h4 {
+//     padding-bottom: 10px;
+//   }
 
-  .flex-1 {
-    display: flex;
-    flex: 1;
-  }
+//   .flex-1 {
+//     display: flex;
+//     flex: 1;
+//   }
 
-  .flex-2 {
-    flex: 4;
-  }
+//   .flex-2 {
+//     flex: 4;
+//   }
 
-  Link {
-    width: 20px;
-    height: 20px;
-  }
-}
+//   Link {
+//     width: 20px;
+//     height: 20px;
+//   }
 
-.view-profile > div {
-  height: 30px;
-  justify-content: center;
-  align-items: center;
-}
+
+// .view-profile > div {
+//   height: 30px;
+//   justify-content: center;
+//   align-items: center;
+// }
 // ************** NavBar **************
 
 .navbar {
@@ -386,8 +417,8 @@ svg {
 
 .event {
   border-radius: 10px;
-  width: 100%;
-  height: 20%;
+  width: 98%;
+  height: 45%;
   background-color: rgb(220, 200, 255);
   margin-bottom: 2%;
   display: flex;
@@ -478,8 +509,8 @@ svg {
 
 .event-img {
   border-radius: 10px;
-  height: 300px;
-  width: 300px;
+  height: 60%;
+  width: 60%;
 }
 
 // ************** One Event Page **************
