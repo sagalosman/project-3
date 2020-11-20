@@ -178,12 +178,12 @@ svg {
 //************** View Profile ***************
 .flex-container {
   display: flex; 
-  background: $primary;
+  // background: $primary;
   flex-direction: column;
   width: 100vw;
   height: 100vh;
   align-items: center;
-  color: white;
+  color: black;
   text-align: start;
 
   .flex-column {
@@ -234,24 +234,16 @@ svg {
     }
   }
 
+  .friend {
+    color: white;
+    background: green;
+  }
+
   #add-friend {
   margin-top: 15px;
   width: 90%;
-
-    button {
-      margin-left: 5px;
-      width: 45%;
-      border-radius: 5px;
-      text-decoration: none;
-      background: none;
-      color: white;
-      border: 1px white solid;
-    }
-    button:visited {
-      background-color: white;
-      color: $primary
-    }
   }
+  
 .party-information {
   display: flex;
   background-color: rgb(220, 200, 255);

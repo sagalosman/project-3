@@ -7,37 +7,43 @@ import { handleDate } from '../lib/DateFormat'
 import { getUserId } from '../lib/UserToken'
 
 const ViewProfile = (props) => {
+
   const userId = props.computedMatch.params.userId
 
   const [viewProfile, updateViewProfile] = useState({})
-  // const [viewUser, updateViewUser] = useState({})
   const [viewEvents, updateViewEvents] = useState([])
+  const [viewCurrentUser, updateCurrentUser] = useState([])
   const [friend, updateFriend] = useState('')
 
   const token = localStorage.getItem('token')
   const currentUser = getUserId(token)
-  
 
-  console.log(viewProfile)
   useEffect(() => {
     axios.get(`/api/profile/${userId}`, {
       headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
     })
       .then(resp => {
         updateViewProfile(resp.data)
-        console.log(viewProfile)
       })
   }, [])
   
-  // useEffect(() => {
-  //   axios.get(`/api/user/${userId}`, {
-  //     headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
-  //   })
-  //     .then(resp => {
-  //       updateViewUser(resp.data)
-        
-  //     })
-  // }, [])
+  useEffect(() => {
+    axios.get(`/api/profile/${currentUser}`, {
+      headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
+    })
+      .then(resp => {
+         updateCurrentUser(resp.data) 
+         if(!resp.data.friends) {
+           return
+         } else { 
+          for (let i = 0; i < resp.data.friends.length; i++) {
+            if (resp.data.friends[i]._id === userId.toString()) {
+               updateFriend('friend')
+            }
+          }
+         }
+      })
+  }, [])
 
   useEffect(() => {
     axios.get(`/api/events/users/${userId}`, {
@@ -48,27 +54,57 @@ const ViewProfile = (props) => {
       })
   }, [])
 
- function addFriend() {
+function addFriend() {
   event.preventDefault()
+  let counter = 0
 
-    axios.put(`/api/profile/${userId}/friends`, { 
-      firstname: viewProfile.user.firstname,
-      lastname: viewProfile.user.lastname,
-      username: viewProfile.user.username,
-      _id: '5fb4ea4b7c6faf3ab025ca67'})
-    .then (resp => {
-      updateViewProfile(resp.data)
-    })
+  if(!viewCurrentUser.friends) {
+    putFriend()
+  } else {
+    for (let i = 0; i < viewCurrentUser.friends.length; i++) {
+      if (viewCurrentUser.friends[i]._id === userId.toString()) {
+         updateFriend('friend')
+         counter ++
+      }
+    }
+
+    if (!counter) {
+      putFriend()
+    } else {
+      removeFriend()
+    }
   }
+}
 
-  const addTopFriend = (event) => {
+function putFriend() {
+  axios.put(`/api/profile/${userId}/friends`, { 
+    firstname: viewProfile.user.firstname,
+    lastname: viewProfile.user.lastname,
+    username: viewProfile.user.username,
+    _id: userId}, {
+      headers: { Authorization: `Bearer ${token}` }
+    })
+  .then (resp => {
+    updateFriend('friend')
+    updateCurrentUser(resp.data)
+  })
+}
+
+function removeFriend() {
+  axios.delete(`/api/profile/${userId}/friends`, {
+    headers: { Authorization: `Bearer ${token}`}
+  })
+    .then(resp => {
+      updateFriend('')
+      updateCurrentUser(resp.data)
+    })
+}
+
+ function addTopFriend() {
     event.preventDefault()
 
-    axios.put(`/api/profile/${viewProfile.user._id}/top-friends`, {},)
-      .then(resp => {
-        updateViewProfile(resp.data)
-      })
   }
+
 
   if (!viewProfile.user) {
     return <>
@@ -81,15 +117,13 @@ const ViewProfile = (props) => {
   {/* <NavBar /> */}
 </>
 }
-
     return <>
-    {console.log(viewProfile)}
       <Banner />
       <main>
         <section className="flex-container">
           <div className="profile-header">
             <div className="flex-column flex-1">
-              <img className="profile-image" src={viewProfile.user.image} alt={viewProfile.user.firstname} />
+              {/* <img className="profile-image" src={viewProfile.user.image} alt={viewProfile.user.firstname} /> */}
             </div>
             <div className="flex-column flex-1">
               <div id="first-row" className="flex-row">
@@ -111,14 +145,14 @@ const ViewProfile = (props) => {
             <h3>{viewProfile.bio}</h3>
           </div>
           <div id="add-friend">
-            {currentUser !== userId && <button onClick={addFriend}>Friend</button>}
+            {currentUser !== userId && <button className={friend} onClick={addFriend}>Friend</button>}
             {currentUser !== userId && <button onClick={addTopFriend}>Top Friend</button>}
           </div>
-          <div className="flex-container">
+          <div>
             {viewEvents.map((e, i) => {
-              return <div key={i} className="flex-row party-information">
+              return <div key={i}>
                 <div className="event-img">
-                  <img src={e.image} alt="image"/>
+                  {/* <img src={e.image} alt="image"/> */}
                 </div>
                 <div className="event-content">
                   <Link to={`/events/${e._id}`} className="event-name">{e.eventName}</Link>
