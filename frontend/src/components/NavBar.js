@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { getUserId } from '../lib/UserToken'
 
+
 const NavBar = () => {
   const token = localStorage.getItem('token')
   const userId = getUserId(token)

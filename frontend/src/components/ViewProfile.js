@@ -4,85 +4,126 @@ import { Link } from 'react-router-dom'
 import Banner from './Banner'
 import NavBar from './NavBar'
 import { handleDate } from '../lib/DateFormat'
+import { getUserId } from '../lib/UserToken'
 
 const ViewProfile = (props) => {
+
   const userId = props.computedMatch.params.userId
-  const friend = '5fb4ea4b7c6faf3ab025ca66'
 
   const [viewProfile, updateViewProfile] = useState({})
-  // const [viewUser, updateViewUser] = useState({})
   const [viewEvents, updateViewEvents] = useState([])
+  const [viewCurrentUser, updateCurrentUser] = useState([])
+  const [friend, updateFriend] = useState('')
 
-  console.log(viewProfile)
+  const token = localStorage.getItem('token')
+  const currentUser = getUserId(token)
+
   useEffect(() => {
     axios.get(`/api/profile/${userId}`, {
       headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
     })
       .then(resp => {
         updateViewProfile(resp.data)
-        
       })
   }, [])
   
-  // useEffect(() => {
-  //   axios.get(`/api/user/${userId}`, {
-  //     headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
-  //   })
-  //     .then(resp => {
-  //       updateViewUser(resp.data)
-        
-  //     })
-  // }, [])
-
   useEffect(() => {
-    axios.get(`/api/events/users/${userId}`, {
+    axios.get(`/api/profile/${currentUser}`, {
       headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
     })
       .then(resp => {
-        console.log(resp.data)
+         updateCurrentUser(resp.data) 
+         if(!resp.data.friends) {
+           return
+         } else { 
+          for (let i = 0; i < resp.data.friends.length; i++) {
+            if (resp.data.friends[i]._id === userId.toString()) {
+               updateFriend('friend')
+            }
+          }
+         }
+      })
+  }, [])
+
+  useEffect(() => {
+    axios.get(`/api/events/users/${userId}`, {
+      headers: { Authorization: `Bearer ${token}` }
+    })
+      .then(resp => {
         updateViewEvents(resp.data)
       })
   }, [])
 
-  const addFriend = (event) => {
-    event.preventDefault()
-    console.log('hello')
-    axios.put(`/api/profile/${viewProfile.user._id}/friends`), {
-      headers: { Authorization: `Bearer ${localStorage.getItem('token')}`}
+function addFriend() {
+  event.preventDefault()
+  let counter = 0
+
+  if(!viewCurrentUser.friends) {
+    putFriend()
+  } else {
+    for (let i = 0; i < viewCurrentUser.friends.length; i++) {
+      if (viewCurrentUser.friends[i]._id === userId.toString()) {
+         updateFriend('friend')
+         counter ++
+      }
     }
-      .then(resp => {
-        console.log(resp)
-     })
+
+    if (!counter) {
+      putFriend()
+    } else {
+      removeFriend()
+    }
+  }
+}
+
+function putFriend() {
+  axios.put(`/api/profile/${userId}/friends`, { 
+    firstname: viewProfile.user.firstname,
+    lastname: viewProfile.user.lastname,
+    username: viewProfile.user.username,
+    _id: userId}, {
+      headers: { Authorization: `Bearer ${token}` }
+    })
+  .then (resp => {
+    updateFriend('friend')
+    updateCurrentUser(resp.data)
+  })
+}
+
+function removeFriend() {
+  axios.delete(`/api/profile/${userId}/friends`, {
+    headers: { Authorization: `Bearer ${token}`}
+  })
+    .then(resp => {
+      updateFriend('')
+      updateCurrentUser(resp.data)
+    })
+}
+
+ function addTopFriend() {
+    event.preventDefault()
+
   }
 
-  const addTopFriend = (event) => {
-    event.preventDefault()
-    event.value = 'selected'
-    axios.put(`/api/profile/${viewProfile.user._id}/top-friends`, {},)
-      .then(resp => {
-        resp.history.push()
-      })
-  }
 
   if (!viewProfile.user) {
     return <>
-  <Banner />
+  {/* <Banner /> */}
   <main className="homepage">
     <div className="display-area">
       <h1 className="loading">Loading...</h1>
     </div>
   </main>
-  <NavBar />
+  {/* <NavBar /> */}
 </>
 }
-
     return <>
       <Banner />
       <main>
         <section className="flex-container">
           <div className="profile-header">
             <div className="flex-column flex-1">
-              <img className="profile-image" src={viewProfile.user.image} alt={viewProfile.user.firstname} />
+              {/* <img className="profile-image" src={viewProfile.user.image} alt={viewProfile.user.firstname} /> */}
             </div>
             <div className="flex-column flex-1">
               <div id="first-row" className="flex-row">
@@ -104,14 +145,14 @@ const ViewProfile = (props) => {
             <h3>{viewProfile.bio}</h3>
           </div>
           <div id="add-friend">
-            <button onClick={addFriend}>Friend</button>
-            <button onClick={addTopFriend}>Top Friend</button>
+            {currentUser !== userId && <button className={friend} onClick={addFriend}>Friend</button>}
+            {currentUser !== userId && <button onClick={addTopFriend}>Top Friend</button>}
           </div>
-          <div className="flex-container">
+          <div>
             {viewEvents.map((e, i) => {
-              return <div key={i} className="flex-row party-information">
+              return <div key={i}>
                 <div className="event-img">
-                  <img src={e.image} alt="image"/>
+                  {/* <img src={e.image} alt="image"/> */}
                 </div>
                 <div className="event-content">
                   <Link to={`/events/${e._id}`} className="event-name">{e.eventName}</Link>
