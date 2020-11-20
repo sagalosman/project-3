@@ -72,13 +72,13 @@ const ViewProfile = (props) => {
 
   if (!viewProfile.user) {
     return <>
-  <Banner />
+  {/* <Banner /> */}
   <main className="homepage">
     <div className="display-area">
       <h1 className="loading">Loading...</h1>
     </div>
   </main>
-  <NavBar />
+  {/* <NavBar /> */}
 </>
 }
 
