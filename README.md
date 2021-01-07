@@ -1,4 +1,4 @@
-# Clique  | Overview
+# Clique  || Overview
 I join a group of four for this project to create a full stack web app using JavaScript,  MongoDB, ExpressJS and ReactJS. This is the first time working in a group project at the General Assembly.
 
 
