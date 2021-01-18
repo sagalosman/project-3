@@ -22,12 +22,12 @@ Technologies Used:
 
 # Planning
 
-Here is a screenshot of our project plan.
+Here is a screenshot of our project plan. As you can see we added a profile schema, register schema and events schema to our backend. 
 
 ![](img/project3.png)
 
 # Approach
-We as a group decided to work on the backend together by taking in turns to code while using live share. Once the backend was complete, we discussed what tasks each of us will be doing the next few days.
+We as a group decided to work on the backend together by taking in turns to code while using live share. Once the backend was complete, we discussed what tasks each of us will be doing the next few days. We as a team decided to use and build our own API for this project.
 
 # Mongoose Schema's
 Here is a screenshot of our event schema:
