@@ -54,9 +54,11 @@ Creating the search page was a challenge for me. It did take me a while for me t
 
 ![](img/searchbar.png)
 
+# Wins 
+I did take a long time working out the search page. With the help of my team mates I managed to get it working on time. 
 
 
-# Lessons Learned
+# Challenges + Lessons Learned
 There was a lot to learn from this experience. It was my first time working in a group. At the begging, getting used to working with git with my teammates was very difficult. We ran into many conflicts, but we manage to resolve the problem fairly quickly. 
 
 We only had one week to complete this project. As I look back, It did take me a long time to finish my tasks. I wish that I had done more since some of my team members did my work than me. In the future, my next project, I will make sure to manage my time more efficiently.
