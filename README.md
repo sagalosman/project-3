@@ -1,5 +1,5 @@
 # Clique  || Overview
-I join a group of four for this project to create a full stack web app using JavaScript,  MongoDB, ExpressJS and ReactJS. This is the first time working in a group project at the General Assembly.
+I and four of my team-mates had to create a full stack web app using JavaScript,  MongoDB, ExpressJS and ReactJS. This is the first time working in a group project at the General Assembly.
 
 You can view my project live here: ----> https://clique-app.herokuapp.com/
 
@@ -43,7 +43,7 @@ We created three controllers for our backend. Event controller, profile controll
 
 # Frontend
 
-My task was to create the login and sign up page as well as the search page.
+My task was to create the login and sign up page as well as the search page. I did all the CSS/SASS for the login and sign-up page. I relised the search page looks plain. It would be great if i had added some stylying. 
 
 Here is my code for the login page
 
