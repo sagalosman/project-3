@@ -48,7 +48,7 @@ My task was to create the login and sign up page as well as the search page.
 Here is my code for the login page
 ![](img/login.png)
 
-Here is what it looks like with CSS:
+Here is what it looks like with CSS: ---->
 
 ![](img/p3.png)
 
