@@ -27,7 +27,7 @@ Here is a screenshot of our project plan. As you can see we added a profile sche
 ![](img/project3.png)
 
 # Approach
-We as a group decided to work on the backend together by taking in turns to code while using live share. Once the backend was complete, we discussed what tasks each of us will be doing the next few days. We as a team decided to use and build our own API for this project.
+We as a group decided to work on the backend together by taking in turns to code while using live share. Once the backend was complete, we discussed what tasks each of us will be doing the next few days. We as a team decided to use and build our own API for this project. 
 
 # Mongoose Schema's
 Here is a screenshot of our event schema:
@@ -36,7 +36,7 @@ Here is a screenshot of our event schema:
 
 # Controllers
 
-We created three controllers for our backend. Event controller, profile controller and user controller. The controllers did take a long time to get done even some of my team members would go back to add more features.
+We created three controllers for our backend. Event controller, profile controller and user controller. The controllers did take a long time to get done even some of my team members would go back to add more features. Once the backend was complete, we split up and set out tasks for each other. My task was to create three pages on the front end of the project. 
 
 ![](img/controller.png)
 
