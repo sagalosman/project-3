@@ -22,7 +22,7 @@ Technologies Used:
 
 # Planning
 
-Here is a screenshot of our project plan. As you can see we added a profile schema, register schema and events schema to our backend. 
+Here is a screenshot of our project plan. As you can see we added a profile schema, register schema and events schema to our backend. Our stretch goal was to create a messaging area within the app and a on/off button which turn the background from light to dark. 
 
 ![](img/project3.png)
 
