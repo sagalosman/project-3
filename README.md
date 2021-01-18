@@ -58,7 +58,7 @@ Creating the search page was a challenge for me. It did take me a while for me t
 ![](img/searchbar.png)
 
 # Wins 
-I did take a long time working out the search page. With the help of my team mates I managed to get it working on time. 
+I did take a long time working out the search page. With the help of my team mates I managed to get it working on time. The login and sign up page works just fine. 
 
 
 # Challenges + Lessons Learned
